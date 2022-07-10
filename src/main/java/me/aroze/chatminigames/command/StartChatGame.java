@@ -20,6 +20,13 @@ public class StartChatGame implements CommandExecutor {
             return true;
         }
 
+        String selectedGame = args[0].toLowerCase();
+
+        if (!(selectedGame.equals("random")) || !(selectedGame.equals("scramble")) || !(selectedGame.equals("rush")) || !(selectedGame.equals("math"))) {
+            //
+            return true;
+        }
+
         startGame(0);
         return true;
     }
