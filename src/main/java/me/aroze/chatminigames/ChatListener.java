@@ -27,7 +27,7 @@ public class ChatListener implements Listener {
                     .replace("{mathOperation}", mathOperation + "")
                     .replace("{mathAnswer}", mathAnswer + "")
                     .replace("{player}", e.getPlayer().getName())
-                    .replace("{elapsedTime}", "3.23 seconds")));
+                    .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
 
             mathAnswer = "";
@@ -38,12 +38,14 @@ public class ChatListener implements Listener {
     }
 
     public String makeTimestamp(long milliseconds) {
-        //convert milliseconds to seconds and maybe minutes
+        StringBuilder timestamp = new StringBuilder();
+
         long seconds = milliseconds / 1000;
         long minutes = seconds / 60;
-        StringBuilder timestamp = new StringBuilder();
+
         if (minutes > 0) timestamp.append(minutes + " minutes and ");
         timestamp.append(seconds + " seconds");
+
         return timestamp.toString();
     }
 
