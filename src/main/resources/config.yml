@@ -18,7 +18,7 @@
 # {mathAnswer} : the answer to a math equation (works in game-start-math messages)
 # {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math messages)
 #
-# {timeTaken} : the time taken in seconds to complete a game (works in any answered-correctly messages)
+# {elapsedTime} : a formatted timestamp of the time taken to complete a game (works in any answered-correctly messages)
 # {player} : the player who answered (works in any answered-correctly messages)
 
 ########################################################################################################################
@@ -45,10 +45,10 @@ messages:
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2}"
       - "&7&m                            "
 
-    # The broadcast that will appear when a player correctly answers a math equation:
-      answered-correctly-math:
+  # The broadcast that will appear when a player correctly answers a math equation:
+    answered-correctly-math:
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
-      - "&#ffb3a6{player} correctly answered the equation in &#ff8787{timeTaken}"
+      - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
       - "&7&m                            "
