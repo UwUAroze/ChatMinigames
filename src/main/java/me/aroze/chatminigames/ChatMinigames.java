@@ -21,6 +21,7 @@ public final class ChatMinigames extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
         getCommand("startchatgame").setExecutor(new StartChatGame());
     }
 
