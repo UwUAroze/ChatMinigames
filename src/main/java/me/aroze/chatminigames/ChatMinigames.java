@@ -89,7 +89,7 @@ public final class ChatMinigames extends JavaPlugin {
                             .append(instance.getConfig().getStringList("messages.game-start-math").size() - 1 == i ? "" : "\n");
                 }
 
-                Bukkit.broadcastMessage(color(instance.getConfig().getString("messages.game-start-math")).replace("{mathNum1}", mathNum1 + "").replace("{mathNum2}", mathNum2 + "").replace("{mathOperation}", mathOperation + ""));
+                Bukkit.broadcastMessage(color(messageToBroadcast.toString().replace("{mathNum1}", mathNum1 + "").replace("{mathNum2}", mathNum2 + "").replace("{mathOperation}", mathOperation + "")));
 
 
                 break;
