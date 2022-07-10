@@ -4,6 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import static me.aroze.chatminigames.ChatMinigames.startGame;
+
 public class StartChatGame implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -18,30 +20,7 @@ public class StartChatGame implements CommandExecutor {
             return true;
         }
 
-        int game = (int) ((Math.random()* 3) + 1);
-        sender.sendMessage(game + "");
-
-        if (game == 1) {
-            // Scramble
-
-
-            return true;
-        }
-
-        if (game == 2) {
-            // Rush
-
-
-            return true;
-        }
-
-        if (game == 3) {
-            // Math
-
-
-            return true;
-        }
-
+        startGame(0);
         return true;
     }
 }
