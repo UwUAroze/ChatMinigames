@@ -14,7 +14,8 @@ public final class ChatMinigames extends JavaPlugin {
     static int mathNum1;
     static int mathNum2;
     static char mathOperation;
-    static int mathAnswer;
+    static String mathAnswer;
+    static long startingTime;
     public static ChatMinigames instance;
 
     @Override
@@ -22,6 +23,7 @@ public final class ChatMinigames extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         getCommand("startchatgame").setExecutor(new StartChatGame());
+        Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
     }
 
     @Override
@@ -71,13 +73,13 @@ public final class ChatMinigames extends JavaPlugin {
                     case 'x':
                         mathNum1 = (int) ((Math.random()* 12) + 2);
                         mathNum2 = (int) ((Math.random()* 12) + 2);
-                        mathAnswer = mathNum1 * mathNum2;
+                        mathAnswer = String.valueOf(mathNum1 * mathNum2);
                         break;
                     case '+':
-                        mathAnswer = mathNum1 + mathNum2;
+                        mathAnswer = String.valueOf(mathNum1 + mathNum2);
                         break;
                     case '-':
-                        mathAnswer = mathNum1 - mathNum2;
+                        mathAnswer = String.valueOf(mathNum1 - mathNum2);
                         break;
                 }
 
@@ -88,8 +90,12 @@ public final class ChatMinigames extends JavaPlugin {
                             .append(instance.getConfig().getStringList("messages.game-start-math").size() - 1 == i ? "" : "\n");
                 }
 
-                Bukkit.broadcastMessage(color(messageToBroadcast.toString().replace("{mathNum1}", mathNum1 + "").replace("{mathNum2}", mathNum2 + "").replace("{mathOperation}", mathOperation + "")));
+                Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+                        .replace("{mathNum1}", mathNum1 + "")
+                        .replace("{mathNum2}", mathNum2 + "")
+                        .replace("{mathOperation}", mathOperation + "")));
 
+                startingTime = System.currentTimeMillis();
 
                 break;
         }
