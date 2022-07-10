@@ -1,0 +1,7 @@
+name: Chat-Minigames
+version: '${project.version}'
+main: me.aroze.chatminigames.chatminigames
+api-version: 1.18
+authors: [ Aroze ]
+description: A lightweight, open-sourced and customizable plugin for chat minigames
+website: aroze.me
