@@ -40,10 +40,11 @@ public class ChatListener implements Listener {
     public String makeTimestamp(long milliseconds) {
         StringBuilder timestamp = new StringBuilder();
 
-        long seconds = milliseconds / 1000;
-        long minutes = seconds / 60;
+        double seconds = milliseconds / 1000;
+        long minutes = (milliseconds / 1000) / 60;
 
-        if (minutes > 0) timestamp.append(minutes + " minutes and ");
+        if (minutes == 1) timestamp.append("1 minute and ");
+        else if (minutes > 0) timestamp.append(minutes + " minutes and ");
         timestamp.append(seconds + " seconds");
 
         return timestamp.toString();
