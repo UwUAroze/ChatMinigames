@@ -16,7 +16,7 @@ public final class ChatMinigames extends JavaPlugin {
     static int mathNum2;
     static char mathOperator;
     static int mathAnswer;
-    static ChatMinigames instance = ChatMinigames.getPlugin(ChatMinigames.class);
+    public static ChatMinigames instance = ChatMinigames.getPlugin(ChatMinigames.class);
 
     @Override
     public void onEnable() {
