@@ -83,7 +83,7 @@ public final class ChatMinigames extends JavaPlugin {
                         break;
                 }
 
-                Bukkit.broadcastMessage(mathNum1 + " " + mathOperator + " " + mathNum2 + " = " + mathAnswer);
+                Bukkit.broadcastMessage(color(instance.getConfig().getString("messages.game-start-math")));
 
 
                 break;
