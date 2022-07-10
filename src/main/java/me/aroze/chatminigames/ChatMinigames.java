@@ -43,7 +43,6 @@ public final class ChatMinigames extends JavaPlugin {
 
         // 0 would be a random game
         if (game == 0) game = (int) ((Math.random()* 3) + 1);
-        Bukkit.broadcastMessage(game + "");
 
         switch(game) {
             case 1: //Scramble
