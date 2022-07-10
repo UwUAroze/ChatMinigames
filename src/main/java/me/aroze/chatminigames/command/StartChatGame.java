@@ -18,12 +18,12 @@ public class StartChatGame implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            //
+            sender.sendMessage(color(instance.getConfig().getString("messages.no-game-specified")));
             return true;
         }
 
         if (args.length > 1) {
-            //
+            sender.sendMessage(color(instance.getConfig().getString("messages.too-many-args")));
             return true;
         }
 
@@ -43,7 +43,7 @@ public class StartChatGame implements CommandExecutor {
                 startGame(3);
                 break;
             default:
-                // invalid game message
+                sender.sendMessage(color(instance.getConfig().getString("messages.invalid-game")));
                 return true;
         }
 
