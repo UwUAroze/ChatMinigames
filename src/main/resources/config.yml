@@ -11,4 +11,4 @@
 ########################################################################################################################
 
 # The message that will appear if a player tries to force start or use any other commands associated with ChatMinigames, if they do not have permission.
-permissionMessage:
+permissionMessage: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"

@@ -12,7 +12,7 @@ public class StartChatGame implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("chatminigames.forcestart")) {
-            sender.sendMessage(color("&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"));
+            sender.sendMessage(color(""));
             return true;
         }
 
