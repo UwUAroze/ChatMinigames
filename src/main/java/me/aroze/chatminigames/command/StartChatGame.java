@@ -40,7 +40,6 @@ public class StartChatGame implements CommandExecutor {
                 return true;
         }
 
-        startGame(0);
         return true;
     }
 }
