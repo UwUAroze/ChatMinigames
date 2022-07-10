@@ -1,0 +1,14 @@
+# hiihihi welcome to ChatMinigames, a lightweight, open-sourced and customizable plugin for chat minigames
+# Source code: https://github.com/UwUAroze/ChatMinigames
+
+# Config.yml:
+# If you severely fuck up, you can reset the config by deleting the file and reloading the config, or plugin.
+
+# Formatting with colour codes:
+# Mineraft colours, example: "Woah &cRed&r!!!"
+# Hex codes, example: "Woah, a &#ff6e6eFancier Red&r!!"
+
+########################################################################################################################
+
+# The message that will appear if a player tries to force start or use any other commands associated with ChatMinigames, if they do not have permission.
+permissionMessage:
