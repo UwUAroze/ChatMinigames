@@ -4,11 +4,17 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import static me.aroze.chatminigames.ChatMinigames.color;
 import static me.aroze.chatminigames.ChatMinigames.startGame;
 
 public class StartChatGame implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (!sender.hasPermission("chatminigames.forcestart")) {
+            sender.sendMessage(color("&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"));
+            return true;
+        }
 
         if (args.length == 0) {
             //
