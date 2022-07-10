@@ -2,6 +2,7 @@
 # Source code: https://github.com/UwUAroze/ChatMinigames
 
 # Config.yml:
+# After making any changes, make sure to reload with /cmg reload
 # If you severely fuck up, you can reset the config by deleting the file and reloading the config, or plugin.
 
 # Formatting with colour codes:
