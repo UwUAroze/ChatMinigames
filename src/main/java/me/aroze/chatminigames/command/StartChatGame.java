@@ -22,7 +22,7 @@ public class StartChatGame implements CommandExecutor {
 
         String selectedGame = args[0].toLowerCase();
 
-        if (!(selectedGame.equals("random")) || !(selectedGame.equals("scramble")) || !(selectedGame.equals("rush")) || !(selectedGame.equals("math"))) {
+        if (!(selectedGame.equals("random")) && !(selectedGame.equals("scramble")) && !(selectedGame.equals("rush")) && !(selectedGame.equals("math"))) {
             //
             return true;
         }
