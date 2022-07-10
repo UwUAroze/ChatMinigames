@@ -11,5 +11,8 @@
 ########################################################################################################################
 
 messages:
-  # The message that will appear if a player tries to force start or use any other commands associated with ChatMinigames, if they do not have permission
-  no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
+  # The message that will appear if a player tries to force start or use any other commands associated with ChatMinigames, if they do not have permission:
+    no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
+
+  # The message that will appear if a player attempts to force start a game without specifying one:
+    no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /forcestart <Random | Scramble | Rush | Math>"
