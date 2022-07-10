@@ -3,7 +3,6 @@ package me.aroze.chatminigames;
 import me.aroze.chatminigames.command.StartChatGame;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.regex.Matcher;
@@ -14,7 +13,7 @@ public final class ChatMinigames extends JavaPlugin {
     private static final Pattern hexPattern = Pattern.compile("&#[a-fA-F0-9]{6}");
     static int mathNum1;
     static int mathNum2;
-    static char mathOperator;
+    static char mathOperation;
     static int mathAnswer;
     public static ChatMinigames instance;
 
@@ -57,9 +56,9 @@ public final class ChatMinigames extends JavaPlugin {
 
                 int temp = (int) ((Math.random()* 3));
                 switch (temp) {
-                    case 0: mathOperator = '+'; break;
-                    case 1: mathOperator = 'x'; break;
-                    case 2: mathOperator = '-'; break;
+                    case 0: mathOperation = '+'; break;
+                    case 1: mathOperation = 'x'; break;
+                    case 2: mathOperation = '-'; break;
                 }
 
                 mathNum1 = (int) ((Math.random()* 70) + 5);
@@ -69,7 +68,7 @@ public final class ChatMinigames extends JavaPlugin {
                     mathNum2 = (int) ((Math.random() * mathNum1) + 1);
                 }
 
-                switch (mathOperator) {
+                switch (mathOperation) {
                     case 'x':
                         mathNum1 = (int) ((Math.random()* 12) + 2);
                         mathNum2 = (int) ((Math.random()* 12) + 2);
@@ -83,7 +82,7 @@ public final class ChatMinigames extends JavaPlugin {
                         break;
                 }
 
-                Bukkit.broadcastMessage(color(instance.getConfig().getString("messages.game-start-math")).replace("{mathNum1}", mathNum1 + "").replace("{mathNum2}", mathNum2 + "").replace("{mathOperator}", mathOperator + "").replace("{mathAnswer}", mathAnswer + ""));
+                Bukkit.broadcastMessage(color(instance.getConfig().getString("messages.game-start-math")).replace("{mathNum1}", mathNum1 + "").replace("{mathNum2}", mathNum2 + "").replace("{mathOperation}", mathOperation + ""));
 
 
                 break;
