@@ -71,8 +71,8 @@ public final class ChatMinigames extends JavaPlugin {
 
                 switch (mathOperation) {
                     case 'x':
-                        mathNum1 = (int) ((Math.random()* 12) + 2);
-                        mathNum2 = (int) ((Math.random()* 12) + 2);
+                        mathNum1 = (int) ((Math.random()* 11) + 2);
+                        mathNum2 = (int) ((Math.random()* 11) + 2);
                         mathAnswer = String.valueOf(mathNum1 * mathNum2);
                         break;
                     case '+':
