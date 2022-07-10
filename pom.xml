@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.aroze</groupId>
-    <artifactId>chatminigames</artifactId>
+    <artifactId>ChatMinigames</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -19,6 +19,7 @@
     <url>aroze.me</url>
 
     <build>
+        <finalName>Chat-Minigames</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
