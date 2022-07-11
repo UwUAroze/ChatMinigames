@@ -5,6 +5,8 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,12 +18,14 @@ public final class ChatMinigames extends JavaPlugin {
     static char mathOperation;
     static String mathAnswer;
     static long startingTime;
+    static List<String> wordList;
     public static ChatMinigames instance;
 
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+        wordList = Arrays.asList(getConfig().getString("wordList").split(", "));
         getCommand("startchatgame").setExecutor(new StartChatGame());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
     }
