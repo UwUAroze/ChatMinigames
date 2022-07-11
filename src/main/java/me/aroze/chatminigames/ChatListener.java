@@ -1,6 +1,7 @@
 package me.aroze.chatminigames;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -29,6 +30,8 @@ public class ChatListener implements Listener {
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.math").replace("{player}", e.getPlayer().getName()));
+            if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("noteblock-volume"), (float) instance.getConfig().getDouble("noteblock-pitch"));
 
             mathAnswer = "";
 

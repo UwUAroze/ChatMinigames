@@ -60,3 +60,8 @@ messages:
   # Message to be sent if a player enters too many args while force starting:
     too-many-args: "&#ff6e6e⚠ &#ff7f6eThat's too many args weirdo."
 
+misc:
+  # Should a noteblock pling (minecraft:block.note_block.pling) play to players who correctly complete a minigame?
+    play-noteblock-pling: true
+    noteblock-volume: 1.0 # Any decimal between 0 and 1 (keep the .0)
+    noteblock-pitch: 2.0 # Any decimal between 0 and 2 (keep the .0)
