@@ -114,7 +114,7 @@ messages:
     - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
     - "&7&m                            "
 
-  # The broadcast for when a player correctly answers a math equation:
+  # The broadcast for when a player correctly answers a rush equation:
     answered-correctly-rush-broadcast:
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
