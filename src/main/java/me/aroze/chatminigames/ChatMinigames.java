@@ -16,8 +16,8 @@ public final class ChatMinigames extends JavaPlugin {
     static int mathNum1;
     static int mathNum2;
     static char mathOperation;
-    static String mathAnswer;
-    static String rushWord;
+    static String mathAnswer = "";
+    static String rushWord = "";
     static long startingTime;
     static List<String> wordList;
     public static ChatMinigames instance;
