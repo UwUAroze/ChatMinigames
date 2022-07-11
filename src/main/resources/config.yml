@@ -86,6 +86,7 @@ wordList:
 rewards:
   # The command to execute when a player correctly answers a math equation
     math: 'addcoins {player} 100'
+  # The command to execute when a player correctly
 
 messages:
   # The broadcast for when a Math game starts:
@@ -114,7 +115,7 @@ messages:
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
       - "&7&m                            "
 
-  # The broadcast for when a player correctly answers a rush equation:
+  # The broadcast for when a player correctly types a rush word:
     answered-correctly-rush-broadcast:
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
@@ -125,7 +126,7 @@ messages:
   # The private message to a player who correctly answers a math equation:
     answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
 
-  # The private message to a player who correctly types a rush word first:
+  # The private message to a player who correctly types a rush word:
     answered-correctly-rush-private: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
 
   # Permission message for all ChatMinigame commands:
