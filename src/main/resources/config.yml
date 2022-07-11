@@ -83,6 +83,7 @@ wordList:
   - 'Ceiling'
   - 'Floor'
 
+# The "/" is already added on. Including a "/" in reward commands will execute a command with 2 slashes.
 rewards:
   # The command to execute when a player correctly answers a math equation
     math: 'addcoins {player} 100'
