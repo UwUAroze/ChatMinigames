@@ -17,6 +17,7 @@ public final class ChatMinigames extends JavaPlugin {
     static int mathNum2;
     static char mathOperation;
     static String mathAnswer;
+    static String rushWord;
     static long startingTime;
     static List<String> wordList;
     public static ChatMinigames instance;
@@ -47,6 +48,8 @@ public final class ChatMinigames extends JavaPlugin {
 
     public static void startGame(int game) {
 
+        StringBuilder messageToBroadcast = new StringBuilder();
+
         // 0 would be a random game
         if (game == 0) game = (int) ((Math.random()* 3) + 1);
 
@@ -56,8 +59,15 @@ public final class ChatMinigames extends JavaPlugin {
 
             case 2: //Rush
 
-                String randomWord = wordList.get((int) Math.floor(Math.random() * wordList.size()));
-                Bukkit.broadcastMessage(randomWord);
+                rushWord = wordList.get((int) Math.floor(Math.random() * wordList.size()));
+
+                for (int i=0; i<instance.getConfig().getStringList("messages.game-start.rush").size(); i++) {
+                    messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.rush").get(i))
+                            .append(instance.getConfig().getStringList("messages.game-start.rush").size() - 1 == i ? "" : "\n");
+                }
+
+                Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+                        .replace("{rushWord}", rushWord)));
 
                 break;
 
@@ -90,8 +100,6 @@ public final class ChatMinigames extends JavaPlugin {
                         mathAnswer = String.valueOf(mathNum1 - mathNum2);
                         break;
                 }
-
-                StringBuilder messageToBroadcast = new StringBuilder();
 
                 for (int i=0; i<instance.getConfig().getStringList("messages.game-start.math").size(); i++) {
                     messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.math").get(i))
