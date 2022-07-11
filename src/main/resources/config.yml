@@ -108,11 +108,11 @@ messages:
 
   # The broadcast for when a player correctly answers a math equation:
     answered-correctly-math-broadcast:
-    - "&7&m                            "
-    - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
-    - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
-    - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
-    - "&7&m                            "
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+      - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
+      - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
+      - "&7&m                            "
 
   # The broadcast for when a player correctly answers a rush equation:
     answered-correctly-rush-broadcast:
