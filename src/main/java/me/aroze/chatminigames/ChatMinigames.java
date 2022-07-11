@@ -103,10 +103,9 @@ public final class ChatMinigames extends JavaPlugin {
                         .replace("{mathNum2}", mathNum2 + "")
                         .replace("{mathOperation}", mathOperation + "")));
 
-                startingTime = System.currentTimeMillis();
-
                 break;
         }
+        startingTime = System.currentTimeMillis();
     }
 
 
