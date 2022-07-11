@@ -86,7 +86,9 @@ wordList:
 rewards:
   # The command to execute when a player correctly answers a math equation
     math: 'addcoins {player} 100'
-  # The command to execute when a player correctly
+  # The command to execute when a player correctly types a rush word
+    rush: 'addcoins {player} 100'
+
 
 messages:
   # The broadcast for when a Math game starts:
