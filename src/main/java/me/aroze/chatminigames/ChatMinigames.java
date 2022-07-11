@@ -55,6 +55,10 @@ public final class ChatMinigames extends JavaPlugin {
                 break;
 
             case 2: //Rush
+
+                String randomWord = wordList.get((int) Math.floor(Math.random() * wordList.size()));
+                Bukkit.broadcastMessage(randomWord);
+
                 break;
 
             case 3: // Math
