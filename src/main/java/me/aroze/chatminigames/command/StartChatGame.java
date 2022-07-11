@@ -13,17 +13,17 @@ public class StartChatGame implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("chatminigames.forcestart")) {
-            sender.sendMessage(color(instance.getConfig().getString("messages.no-permission")));
+            sender.sendMessage(color(instance.getConfig().getString("messages.other.no-permission")));
             return true;
         }
 
         if (args.length == 0) {
-            sender.sendMessage(color(instance.getConfig().getString("messages.no-game-specified")));
+            sender.sendMessage(color(instance.getConfig().getString("messages.other.no-game-specified")));
             return true;
         }
 
         if (args.length > 1) {
-            sender.sendMessage(color(instance.getConfig().getString("messages.too-many-args")));
+            sender.sendMessage(color(instance.getConfig().getString("messages.other.too-many-args")));
             return true;
         }
 
@@ -43,7 +43,7 @@ public class StartChatGame implements CommandExecutor {
                 startGame(3);
                 break;
             default:
-                sender.sendMessage(color(instance.getConfig().getString("messages.invalid-game")));
+                sender.sendMessage(color(instance.getConfig().getString("messages.other.invalid-game")));
                 return true;
         }
 
