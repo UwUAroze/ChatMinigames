@@ -114,6 +114,14 @@ messages:
     - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
     - "&7&m                            "
 
+  # The broadcast for when a player correctly answers a math equation:
+    answered-correctly-rush-broadcast:
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
+      - "&#ffb3a6{player} correctly typed the word in &#ff8787{elapsedTime}"
+      - "&#ffb3a6Word: &#ff8787{rushWord}"
+      - "&7&m                            "
+
   # The private message to a player who correctly answers a math equation
     answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
 
