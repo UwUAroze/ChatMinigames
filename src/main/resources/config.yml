@@ -13,11 +13,13 @@
 # Placeholders:
 #
 # For game start broadcasts:
-# {mathNumber1} : the first number in a math equation (works in game-start-math or answered-correctly-math messages)
-# {mathNumber2} : the second number in a math equation (works in game-start-math or answered-correctly-math messages)
+# {mathNumber1} : the first number in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
+# {mathNumber2} : the second number in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
 # {mathAnswer} : the answer to a math equation (works in game-start-math messages)
-# {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math messages)
-# {rushWord} : the word to be typed in a rush game (works in game-start-rush or answered-correctly-rush messages)
+# {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
+# {rushWord} : the word to be typed in a rush game (works in game-start-rush or answered-correctly-rush-broadcast messages)
+# {scrambledWord} : the word to be unscrambled in a scramble game (works in game-start-unscramble)
+# {actualWord} : the actual (unscrambled) word in a scramble game (works in answered-correctly-unscramble-broadcast messages)
 #
 # {elapsedTime} : a formatted timestamp of the time taken to complete a game (works in any answered-correctly messages)
 # {player} : the player who answered (works in any answered-correctly messages, and any reward)
@@ -83,19 +85,18 @@ wordList:
   - 'Ceiling'
   - 'Floor'
 
-# The "/" is already added on. Including a "/" in reward commands will execute a command with 2 slashes.
+# Commands to execute when a player completes a chat minigame
+# The "/" is already added onto the start
+# Available placeholders: {player}
 rewards:
-  # The command to execute when a player correctly answers a math equation
-    math: 'addcoins {player} 100'
-  # The command to execute when a player correctly types a rush word
-    rush: 'addcoins {player} 100'
-  # The command to execute when a player correctly unscrambles a word.
-    unscramble: 'addcoins {player} 100'
+  math: 'addcoins {player} 100'
+  rush: 'addcoins {player} 100'
+  unscramble: 'addcoins {player} 100'
 
 
 messages:
-  # The broadcast for when a Math game starts:
-    game-start-math:
+  game-start: # Messages to broadcast when a specific game starts
+    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
       - ""
@@ -103,8 +104,7 @@ messages:
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2}"
       - "&7&m                            "
 
-  # The broadcast for when a Rush game ends:
-    game-start-rush:
+    rush: # Available placeholders: {rushWord}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
       - ""
@@ -112,37 +112,51 @@ messages:
       - "&#ffb3a6Word: &#ff8787{rushWord}"
       - "&7&m                            "
 
-  # The broadcast for when a player correctly answers a math equation:
-    answered-correctly-math-broadcast:
+    unscramble: # Available placeholders: {scrambledWord}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
+      - ""
+      - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Word: &#ff8787{unscrambleWord}"
+      - "&7&m                            "
+
+
+  answered-correctly-broadcast: # Messages to broadcast for when a player completes a specific game
+    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}, {mathAnswer}, {elapsedTime}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
       - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
       - "&7&m                            "
 
-  # The broadcast for when a player correctly types a rush word:
-    answered-correctly-rush-broadcast:
+    rush: # Available placeholders: {rushWord}, {elapsedTime}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
       - "&#ffb3a6{player} correctly typed the word in &#ff8787{elapsedTime}"
       - "&#ffb3a6Word: &#ff8787{rushWord}"
       - "&7&m                            "
 
-  # The private message to a player who correctly answers a math equation:
-    answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
+    unscramble: # Available placeholders: {scrambledWord}, {actualWord}, {elapsedTime}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
+      - "&#ffb3a6{player} correctly answered in &#ff8787{elapsedTime}"
+      - "&#ffb3a6The word was: &#ff8787{actualWord}"
+      - "&7&m                            "
 
-  # The private message to a player who correctly types a rush word:
-    answered-correctly-rush-private: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
 
+    answered-correctly-private: # Private message to be sent to a player who completes a specific game
+      math: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
+      rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
+      unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+
+
+  other:
   # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
-
   # Message to be sent if a player attempts to force start a game without specifying one:
     no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /forcestart <Random | Unscramble | Rush | Math>"
-
   # Message to be sent if a player attempts to force start a game that does not exist:
     invalid-game: "&#ff6e6e⚠ &#ff7f6eThat game doesn't exist, dummy!"
-
   # Message to be sent if a player enters too many args while force starting:
     too-many-args: "&#ff6e6e⚠ &#ff7f6eThat's too many args weirdo."
 
