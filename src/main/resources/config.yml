@@ -158,3 +158,6 @@ misc:
     case-sensitive:
       unscramble: false
       rush: false
+
+  # Should messages be cancelled if a player correctly answers?
+    cancel-messages: true
