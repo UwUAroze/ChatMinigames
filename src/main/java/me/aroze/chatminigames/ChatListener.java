@@ -39,7 +39,7 @@ public class ChatListener implements Listener {
             return;
         }
 
-        if (!rushWord.isEmpty() && e.getMessage().equals(rushWord)) {
+        if (!rushWord.isEmpty() && e.getMessage().equalsIgnoreCase(rushWord)) {
             e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
