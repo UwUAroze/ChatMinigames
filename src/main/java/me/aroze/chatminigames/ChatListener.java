@@ -14,6 +14,7 @@ public class ChatListener implements Listener {
     public void onChat(org.bukkit.event.player.AsyncPlayerChatEvent e) {
 
         if (!mathAnswer.isEmpty() && e.getMessage().equals(mathAnswer)) {
+
             if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
@@ -42,7 +43,7 @@ public class ChatListener implements Listener {
         if (!rushWord.isEmpty() && e.getMessage().equalsIgnoreCase(rushWord)) {
 
             if (instance.getConfig().getBoolean("misc.case-sensitive.rush") && !e.getMessage().equals(rushWord)) return;
-            e.setCancelled(true);
+            if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
             for (int i=0; i<instance.getConfig().getStringList("messages.answered-correctly-broadcast.rush").size(); i++) {
