@@ -19,36 +19,44 @@
 # {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math messages)
 #
 # {elapsedTime} : a formatted timestamp of the time taken to complete a game (works in any answered-correctly messages)
-# {player} : the player who answered (works in any answered-correctly messages)
+# {player} : the player who answered (works in any answered-correctly messages, and any reward)
 
 ########################################################################################################################
 
+rewards:
+  # The command to execute when a player correctly answers a math equation
+    math: '/addcoins {player} 100'
+
 messages:
-  # The message that will appear if a player tries to force start or use any other commands associated with ChatMinigames, if they do not have permission:
+  # The broadcast for when a Math game starts:
+  game-start-math:
+    - "&7&m                            "
+    - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+    - ""
+    - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 coins!"
+    - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2}"
+    - "&7&m                            "
+
+  # The broadcast for when a player correctly answers a math equation:
+  answered-correctly-math-broadcast:
+    - "&7&m                            "
+    - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+    - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
+    - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
+    - "&7&m                            "
+
+  # The private message to a player who correctly answers a math equation
+  answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6>&o+100 Coins"
+
+  # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
 
-  # The message that will appear if a player attempts to force start a game without specifying one:
+  # Message to be sent if a player attempts to force start a game without specifying one:
     no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /forcestart <Random | Scramble | Rush | Math>"
 
-  # The message that will appear if a player attempts to force start a game that does not exist:
+  # Message to be sent if a player attempts to force start a game that does not exist:
     invalid-game: "&#ff6e6e⚠ &#ff7f6eThat game doesn't exist, dummy!"
 
-  # The message that will appear if a player enters too many args while force starting:
+  # Message to be sent if a player enters too many args while force starting:
     too-many-args: "&#ff6e6e⚠ &#ff7f6eThat's too many args weirdo."
 
-  # The broadcast that will appear when a Math game starts:
-    game-start-math:
-      - "&7&m                            "
-      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
-      - ""
-      - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 coins!"
-      - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2}"
-      - "&7&m                            "
-
-  # The broadcast that will appear when a player correctly answers a math equation:
-    answered-correctly-math:
-      - "&7&m                            "
-      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
-      - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
-      - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
-      - "&7&m                            "
