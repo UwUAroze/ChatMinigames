@@ -33,7 +33,7 @@ public class StartChatGame implements CommandExecutor {
             case "random":
                 startGame(0);
                 break;
-            case "scramble":
+            case "unscramble":
                 startGame(1);
                 break;
             case "rush":
