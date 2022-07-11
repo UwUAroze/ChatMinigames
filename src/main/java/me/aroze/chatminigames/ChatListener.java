@@ -14,7 +14,7 @@ public class ChatListener implements Listener {
     public void onChat(org.bukkit.event.player.AsyncPlayerChatEvent e) {
 
         if (!mathAnswer.isEmpty() && e.getMessage().equals(mathAnswer)) {
-            e.setCancelled(true);
+            if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
             for (int i=0; i<instance.getConfig().getStringList("messages.answered-correctly-broadcast.math").size(); i++) {
