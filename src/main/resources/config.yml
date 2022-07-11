@@ -17,6 +17,7 @@
 # {mathNumber2} : the second number in a math equation (works in game-start-math or answered-correctly-math messages)
 # {mathAnswer} : the answer to a math equation (works in game-start-math messages)
 # {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math messages)
+# {rushWord} : the word to be typed in a rush game (works in game-start-rush or answered-correctly-rush messages)
 #
 # {elapsedTime} : a formatted timestamp of the time taken to complete a game (works in any answered-correctly messages)
 # {player} : the player who answered (works in any answered-correctly messages, and any reward)
@@ -95,6 +96,15 @@ messages:
     - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 coins!"
     - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2}"
     - "&7&m                            "
+
+  # The broadcast for when a Rush game ends:
+    game-start-rush:
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
+      - ""
+      - "&#ffb3a6Type the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Word: &#ff8787{rushWord}"
+      - "&7&m                            "
 
   # The broadcast for when a player correctly answers a math equation:
     answered-correctly-math-broadcast:
