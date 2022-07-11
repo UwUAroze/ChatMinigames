@@ -122,8 +122,11 @@ messages:
       - "&#ffb3a6Word: &#ff8787{rushWord}"
       - "&7&m                            "
 
-  # The private message to a player who correctly answers a math equation
+  # The private message to a player who correctly answers a math equation:
     answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
+
+  # The private message to a player who correctly types a rush word first:
+    answered-correctly-rush-private: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
 
   # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
