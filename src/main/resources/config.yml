@@ -1,3 +1,6 @@
+
+########################################################################################################################
+
 # hiihihi welcome to ChatMinigames, a lightweight, open-sourced and customizable plugin for chat minigames
 # Source code: https://github.com/UwUAroze/ChatMinigames
 
@@ -5,28 +8,13 @@
 # After making any changes, make sure to reload with /cmg reload
 # If you severely fuck up, you can reset the config by deleting the file and reloading the config, or plugin.
 
-# Formatting with colour codes:
-# Mineraft colours, example: "Woah &cRed&r!!!"
-# Hex codes, example: "Woah, a &#ff6e6eFancier Red&r!!"
-
-#
-# Placeholders:
-#
-# For game start broadcasts:
-# {mathNumber1} : the first number in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
-# {mathNumber2} : the second number in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
-# {mathAnswer} : the answer to a math equation (works in game-start-math messages)
-# {mathOperator} : the operator in a math equation (works in game-start-math or answered-correctly-math-broadcast messages)
-# {rushWord} : the word to be typed in a rush game (works in game-start-rush or answered-correctly-rush-broadcast messages)
-# {scrambledWord} : the word to be unscrambled in a scramble game (works in game-start-unscramble)
-# {actualWord} : the actual (unscrambled) word in a scramble game (works in answered-correctly-unscramble-broadcast messages)
-#
-# {elapsedTime} : a formatted timestamp of the time taken to complete a game (works in any answered-correctly messages)
-# {player} : the player who answered (works in any answered-correctly messages, and any reward)
+# Formatting with hex and regular colour codes is supported:
+# Example: "Woah &cRed&r!!!"
+# Hex example: "Woah, a &#ff6e6eFancier Red&r!!"
 
 ########################################################################################################################
 
-# This list will be used for both unscramble and rush.
+# This word list will be used for both unscramble and rush.
 wordList:
   - 'Nerd'
   - 'Broadcast'
@@ -117,26 +105,26 @@ messages:
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
       - ""
       - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
-      - "&#ffb3a6Word: &#ff8787{unscrambleWord}"
+      - "&#ffb3a6Word: &#ff8787{scrambledWord}"
       - "&7&m                            "
 
 
   answered-correctly-broadcast: # Messages to broadcast for when a player completes a specific game
-    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}, {mathAnswer}, {elapsedTime}
+    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}, {mathAnswer}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
       - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
       - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
       - "&7&m                            "
 
-    rush: # Available placeholders: {rushWord}, {elapsedTime}
+    rush: # Available placeholders: {rushWord}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
       - "&#ffb3a6{player} correctly typed the word in &#ff8787{elapsedTime}"
       - "&#ffb3a6Word: &#ff8787{rushWord}"
       - "&7&m                            "
 
-    unscramble: # Available placeholders: {scrambledWord}, {actualWord}, {elapsedTime}
+    unscramble: # Available placeholders: {scrambledWord}, {actualWord}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
       - "&#ffb3a6{player} correctly answered in &#ff8787{elapsedTime}"
