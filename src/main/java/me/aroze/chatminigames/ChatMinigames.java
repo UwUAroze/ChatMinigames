@@ -51,7 +51,7 @@ public final class ChatMinigames extends JavaPlugin {
         if (game == 0) game = (int) ((Math.random()* 3) + 1);
 
         switch(game) {
-            case 1: //Scramble
+            case 1: //Unscramble
                 break;
 
             case 2: //Rush
