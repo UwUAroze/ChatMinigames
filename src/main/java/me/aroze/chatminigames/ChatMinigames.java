@@ -25,7 +25,7 @@ public final class ChatMinigames extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        wordList = Arrays.asList(getConfig().getString("wordList").split(", "));
+        wordList = getConfig().getStringList("wordList");
         getCommand("startchatgame").setExecutor(new StartChatGame());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
     }
