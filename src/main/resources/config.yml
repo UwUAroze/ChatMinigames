@@ -153,3 +153,8 @@ misc:
     play-noteblock-pling: true
     noteblock-volume: 1.0 # Any decimal between 0 and 1 (keep the .0)
     noteblock-pitch: 2.0 # Any decimal between 0 and 2 (keep the .0)
+
+  # Should answer checking for unscramble/rush be case sensitive?
+    case-sensitive:
+      unscramble: false
+      rush: false
