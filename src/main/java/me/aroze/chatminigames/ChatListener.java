@@ -30,7 +30,7 @@ public class ChatListener implements Listener {
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
-            e.getPlayer().sendMessage(instance.getConfig().getString("answered-correctly-math-private"));
+            e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-math-private")));
             Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.math").replace("{player}", e.getPlayer().getName())));
             if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("noteblock-volume"), (float) instance.getConfig().getDouble("noteblock-pitch"));
 
