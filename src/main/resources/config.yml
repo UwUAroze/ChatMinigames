@@ -23,13 +23,16 @@
 
 ########################################################################################################################
 
+# This list will be used for both unscramble and rush. Separate each word with a comma:
+  wordList: 'Nerd, Broadcast, Swallow, Marriage, Bathtub, Couple, Knowledge, Transparent, Journal, Greeting, Attractive, Pillow, Hypothesis, Legend, Mommy, Daddy, Brother, Sister, Confession, Suck, Swallow, Vomit, Choke, Defenestration, Duvet, Baguette, Cucumber, Generator, Multiplier, Prestige, Photosynthesis, Character, Competitive, Unique, Stick, Fishing, Eggplant, Immortal, Bedrock, Obsidian, Iron, Diamond, Emerald, Villager, Conclusiveness, Discombobulated, Improvement, Extension, Compartment, Treat, Invasion, Raid, Summer, Winter, Ceiling, Floor'
+
 rewards:
   # The command to execute when a player correctly answers a math equation
-    math: '/addcoins {player} 100'
+    math: 'addcoins {player} 100'
 
 messages:
   # The broadcast for when a Math game starts:
-  game-start-math:
+    game-start-math:
     - "&7&m                            "
     - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
     - ""
@@ -38,7 +41,7 @@ messages:
     - "&7&m                            "
 
   # The broadcast for when a player correctly answers a math equation:
-  answered-correctly-math-broadcast:
+    answered-correctly-math-broadcast:
     - "&7&m                            "
     - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
     - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
@@ -46,7 +49,7 @@ messages:
     - "&7&m                            "
 
   # The private message to a player who correctly answers a math equation
-  answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6>&o+100 Coins"
+    answered-correctly-math-private: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
 
   # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
