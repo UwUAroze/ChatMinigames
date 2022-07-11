@@ -54,6 +54,8 @@ public class ChatListener implements Listener {
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
             e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.rush")));
+            Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.math").replace("{player}", e.getPlayer().getName())));
+
 
             rushWord = "";
         }
