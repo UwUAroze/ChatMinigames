@@ -13,7 +13,7 @@ public class ChatListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onChat(org.bukkit.event.player.AsyncPlayerChatEvent e) {
 
-        if (e.getMessage().equals(mathAnswer) && !mathAnswer.isEmpty()) {
+        if (!mathAnswer.isEmpty() && e.getMessage().equals(mathAnswer)) {
             e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
