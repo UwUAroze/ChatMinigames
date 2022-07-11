@@ -40,6 +40,8 @@ public class ChatListener implements Listener {
         }
 
         if (!rushWord.isEmpty() && e.getMessage().equalsIgnoreCase(rushWord)) {
+
+            if (instance.getConfig().getBoolean("misc.case-sensitive.rush") && !e.getMessage().equals(rushWord)) return;
             e.setCancelled(true);
 
             StringBuilder messageToBroadcast = new StringBuilder();
