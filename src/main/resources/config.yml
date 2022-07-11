@@ -132,10 +132,10 @@ messages:
       - "&7&m                            "
 
 
-    answered-correctly-private: # Private message to be sent to a player who completes a specific game
-      math: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
-      rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
-      unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+  answered-correctly-private: # Private message to be sent to a player who completes a specific game
+    math: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
+    rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
+    unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
 
 
   other:
