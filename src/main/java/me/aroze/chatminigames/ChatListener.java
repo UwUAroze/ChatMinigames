@@ -63,6 +63,13 @@ public class ChatListener implements Listener {
             rushWord = "";
         }
 
+        if (!actualWord.isEmpty() && e.getMessage().equalsIgnoreCase(actualWord)) {
+
+            if (instance.getConfig().getBoolean("misc.case-sensitive.unscramble") && !e.getMessage().equals(actualWord)) return;
+            if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
+
+        }
+
     }
 
     public String makeTimestamp(double milliseconds) {
