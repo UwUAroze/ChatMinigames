@@ -82,6 +82,8 @@ public class ChatListener implements Listener {
 
             e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.unscramble")));
             Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.unscramble").replace("{player}", e.getPlayer().getName())));
+            if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("misc.noteblock-volume"), (float) instance.getConfig().getDouble("misc.noteblock-pitch"));
+
 
         }
 
