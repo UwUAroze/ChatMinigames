@@ -35,6 +35,14 @@ public final class ChatMinigames extends JavaPlugin {
         wordList = getConfig().getStringList("wordList");
         getCommand("startchatgame").setExecutor(new StartChatGame());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
+
+        if (getConfig().getBoolean("periodical.automatic-start")) {
+            int delay = 20 * getConfig().getInt("periodical.interval-seconds");
+            Bukkit.getScheduler().runTaskTimer(this, () -> {
+                Bukkit.broadcastMessage("this should run the minigame thing");
+            }, delay, delay);
+        }
+
     }
 
     @Override
