@@ -7,6 +7,7 @@
 # Config.yml:
 # After making any changes, make sure to reload with /cmg reload
 # If you severely fuck up, you can reset the config by deleting the file and reloading the config, or plugin.
+# Or just compare your config to that in source code I guess
 
 # Formatting with hex and regular colour codes is supported:
 # Example: "Woah &cRed&r!!!"
