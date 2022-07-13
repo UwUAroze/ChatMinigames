@@ -75,7 +75,7 @@ wordList:
 
 ########################################################################################################################
 
-# Should there be an automatic chat minigame regularly?
+# Should there be an automatic chat minigame?
 # How often should it occur?
 periodical:
   automatic-start: true
