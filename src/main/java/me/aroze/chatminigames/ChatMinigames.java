@@ -75,6 +75,9 @@ public final class ChatMinigames extends JavaPlugin {
                             .append(instance.getConfig().getStringList("messages.game-start.unscramble").size() - 1 == i ? "" : "\n");
                 }
 
+                Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+                        .replace("{scrambledWord}", scrambledWord)));
+
                 break;
 
             case 2: //Rush
