@@ -81,6 +81,8 @@ public class ChatListener implements Listener {
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
             e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.unscramble")));
+            Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.unscramble").replace("{player}", e.getPlayer().getName())));
+
         }
 
     }
