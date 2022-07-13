@@ -57,7 +57,6 @@ public final class ChatMinigames extends JavaPlugin {
     }
 
 
-
     public static void startGame(int game) {
 
         StringBuilder messageToBroadcast = new StringBuilder();
@@ -70,7 +69,11 @@ public final class ChatMinigames extends JavaPlugin {
 
                 actualWord = wordList.get((int) Math.floor(Math.random() * wordList.size()));
                 scrambledWord = shuffleString(actualWord);
-                Bukkit.broadcastMessage(actualWord + " -> " + scrambledWord);
+
+                for (int i=0; i<instance.getConfig().getStringList("messages.game-start.unscramble").size(); i++) {
+                    messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.unscramble").get(i))
+                            .append(instance.getConfig().getStringList("messages.game-start.unscramble").size() - 1 == i ? "" : "\n");
+                }
 
                 break;
 
