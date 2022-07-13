@@ -80,6 +80,7 @@ public class ChatListener implements Listener {
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
+            e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.unscramble")));
         }
 
     }
