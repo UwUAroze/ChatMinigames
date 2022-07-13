@@ -1,7 +1,9 @@
 package me.aroze.chatminigames;
 
+import com.google.common.primitives.Chars;
 import me.aroze.chatminigames.command.StartChatGame;
 import net.md_5.bungee.api.ChatColor;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -49,13 +51,9 @@ public final class ChatMinigames extends JavaPlugin {
     }
 
     public static String shuffleString(String text) {
-        List<char[]> characters = Arrays.asList(text.toCharArray());
-        Collections.shuffle(characters);
-        StringBuilder sb = new StringBuilder();
-        for (char[] character : characters) {
-            sb.append(character);
-        }
-        return sb.toString();
+        List<Character> chars = Chars.asList(text.toCharArray());
+        Collections.shuffle(chars);
+        return StringUtils.join(chars.stream().toArray());
     }
 
 
