@@ -97,9 +97,16 @@ public class ChatListener implements Listener {
         double seconds = Math.round(milliseconds / 10) / 100.0; // this rounds to 2dp
         int minutes = (int) ((milliseconds / 1000) / 60);
 
-        if (minutes == 1) timestamp.append("1 minute and ");
-        else if (minutes > 0) timestamp.append(minutes + " minutes and ");
-        timestamp.append(seconds + " seconds");
+        if (minutes == 1) {
+            seconds -= 60;
+            timestamp.append("1 minute and ");
+        }
+
+        else if (minutes > 0) {
+            seconds -= 60 * minutes;
+            timestamp.append(minutes).append(" minutes and ");
+        }
+        timestamp.append(seconds).append(" seconds");
 
         return timestamp.toString();
     }
