@@ -74,6 +74,12 @@ public class ChatListener implements Listener {
                         .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.unscramble").size() - 1 == i ? "" : "\n");
             }
 
+            Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+                    .replace("{actualWord}", actualWord)
+                    .replace("{scrambledWord}", scrambledWord)
+                    .replace("{player}", e.getPlayer().getName())
+                    .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
+
         }
 
     }
