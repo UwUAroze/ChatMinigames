@@ -70,7 +70,9 @@ public final class ChatMinigames extends JavaPlugin {
         switch(game) {
             case 1: //Unscramble
 
-
+                actualWord = wordList.get((int) Math.floor(Math.random() * wordList.size()));
+                scrambledWord = shuffleString(actualWord);
+                Bukkit.broadcastMessage(actualWord + " -> " + scrambledWord);
 
                 break;
 
