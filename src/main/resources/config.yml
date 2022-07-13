@@ -72,6 +72,15 @@ wordList:
   - 'Vomit'
   - 'Winter'
 
+########################################################################################################################
+
+# Should there be an automatic chat minigame regularly?
+# How often should it occur?
+periodical:
+  automatic-start: true
+  interval-seconds: 5
+
+
 # Commands to execute when a player completes a chat minigame
 # The "/" is already added onto the start
 # Available placeholders: {player}
