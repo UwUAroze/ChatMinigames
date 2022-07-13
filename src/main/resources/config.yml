@@ -78,7 +78,7 @@ wordList:
 # How often should it occur?
 periodical:
   automatic-start: true
-  interval-seconds: 5
+  interval-seconds: 1
 
 
 # Commands to execute when a player completes a chat minigame
