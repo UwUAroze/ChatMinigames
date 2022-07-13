@@ -68,6 +68,12 @@ public class ChatListener implements Listener {
             if (instance.getConfig().getBoolean("misc.case-sensitive.unscramble") && !e.getMessage().equals(actualWord)) return;
             if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
 
+            StringBuilder messageToBroadcast = new StringBuilder();
+            for (int i=0; i<instance.getConfig().getStringList("messages.answered-correctly-broadcast.unscramble").size(); i++) {
+                messageToBroadcast.append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.unscramble").get(i))
+                        .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.unscramble").size() - 1 == i ? "" : "\n");
+            }
+
         }
 
     }
