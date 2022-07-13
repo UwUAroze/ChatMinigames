@@ -5,7 +5,9 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,6 +20,8 @@ public final class ChatMinigames extends JavaPlugin {
     static char mathOperation;
     static String mathAnswer = "";
     static String rushWord = "";
+    static String scrambledWord = "";
+    static String actualWord = "";
     static long startingTime;
     static List<String> wordList;
     public static ChatMinigames instance;
@@ -44,6 +48,16 @@ public final class ChatMinigames extends JavaPlugin {
         return ChatColor.translateAlternateColorCodes('&', text);
     }
 
+    public static String shuffleString(String text) {
+        List<char[]> characters = Arrays.asList(text.toCharArray());
+        Collections.shuffle(characters);
+        StringBuilder sb = new StringBuilder();
+        for (char[] character : characters) {
+            sb.append(character);
+        }
+        return sb.toString();
+    }
+
 
 
     public static void startGame(int game) {
@@ -55,6 +69,9 @@ public final class ChatMinigames extends JavaPlugin {
 
         switch(game) {
             case 1: //Unscramble
+
+
+
                 break;
 
             case 2: //Rush
