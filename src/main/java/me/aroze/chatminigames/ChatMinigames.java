@@ -39,7 +39,7 @@ public final class ChatMinigames extends JavaPlugin {
         if (getConfig().getBoolean("periodical.automatic-start")) {
             int delay = 20 * getConfig().getInt("periodical.interval-seconds");
             Bukkit.getScheduler().runTaskTimer(this, () -> {
-                Bukkit.broadcastMessage("this should run the minigame thing");
+                startGame(0);
             }, delay, delay);
         }
 
