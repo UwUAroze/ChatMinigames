@@ -8,7 +8,7 @@ import static me.aroze.chatminigames.ChatMinigames.color;
 import static me.aroze.chatminigames.ChatMinigames.startGame;
 import static me.aroze.chatminigames.ChatMinigames.instance;
 
-public class StartChatGame implements CommandExecutor {
+public class ChatMinigamesCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 

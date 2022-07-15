@@ -1,14 +1,12 @@
 package me.aroze.chatminigames;
 
 import com.google.common.primitives.Chars;
-import me.aroze.chatminigames.command.StartChatGame;
+import me.aroze.chatminigames.command.ChatMinigamesCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -33,7 +31,7 @@ public final class ChatMinigames extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         wordList = getConfig().getStringList("wordList");
-        getCommand("startchatgame").setExecutor(new StartChatGame());
+        getCommand("startchatgame").setExecutor(new ChatMinigamesCommand());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
 
         if (getConfig().getBoolean("periodical.automatic-start")) {
