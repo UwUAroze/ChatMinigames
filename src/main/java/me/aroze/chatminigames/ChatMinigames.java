@@ -67,6 +67,10 @@ public final class ChatMinigames extends JavaPlugin {
 
     public static void startGame(int game) {
 
+        actualWord = "";
+        mathAnswer = "";
+        rushWord = "";
+
         StringBuilder messageToBroadcast = new StringBuilder();
 
         // 0 would be a random game
