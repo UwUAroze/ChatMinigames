@@ -9,7 +9,7 @@
 # If you severely fuck up, you can reset the config by deleting the file and reloading the config, or plugin.
 # Or just compare your config to that in source code I guess
 
-# Formatting with hex and regular colour codes is supported:
+# Formatting with hex (&#<hex code>) and regular colour codes (&<code>) is supported:
 # Example: "Woah &cRed&r!!!"
 # Hex example: "Woah, a &#ff6e6eFancier Red&r!!"
 
