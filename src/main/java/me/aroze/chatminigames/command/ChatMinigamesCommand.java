@@ -18,33 +18,45 @@ public class ChatMinigamesCommand implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            sender.sendMessage(color(instance.getConfig().getString("messages.other.no-game-specified")));
+            sender.sendMessage(color(instance.getConfig().getString("messages.other.info")));
             return true;
         }
 
-        if (args.length > 1) {
-            sender.sendMessage(color(instance.getConfig().getString("messages.other.too-many-args")));
+        if (args.length == 1 && (args[0].equals("reload") || args[0].equals("rl"))) {
+            // reload logic
             return true;
         }
 
-        String selectedGame = args[0].toLowerCase();
+        if (args[0].equals("forcestart") || args[0].equals("fs") || args[0].equals("start")) {
 
-        switch (selectedGame) {
-            case "random":
-                startGame(0);
-                break;
-            case "unscramble":
-                startGame(1);
-                break;
-            case "rush":
-                startGame(2);
-                break;
-            case "math":
-                startGame(3);
-                break;
-            default:
-                sender.sendMessage(color(instance.getConfig().getString("messages.other.invalid-game")));
+            if (args.length == 1) {
+                sender.sendMessage(color(instance.getConfig().getString("messages.other.no-game-specified")));
                 return true;
+            }
+
+            if (args.length > 2) {
+                sender.sendMessage(color(instance.getConfig().getString("messages.other.too-many-args")));
+                return true;
+            }
+
+            String selectedGame = args[0].toLowerCase();
+            switch (selectedGame) {
+                case "random":
+                    startGame(0);
+                    return true;
+                case "unscramble":
+                    startGame(1);
+                    return true;
+                case "rush":
+                    startGame(2);
+                    return true;
+                case "math":
+                    startGame(3);
+                    return true;
+                default:
+                    sender.sendMessage(color(instance.getConfig().getString("messages.other.invalid-game")));
+                    return true;
+            }
         }
 
         return true;
