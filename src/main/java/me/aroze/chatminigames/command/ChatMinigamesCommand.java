@@ -39,7 +39,7 @@ public class ChatMinigamesCommand implements CommandExecutor {
                 return true;
             }
 
-            String selectedGame = args[0].toLowerCase();
+            String selectedGame = args[1].toLowerCase();
             switch (selectedGame) {
                 case "random":
                     startGame(0);
