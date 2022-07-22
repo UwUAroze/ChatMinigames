@@ -157,7 +157,7 @@ messages:
   # Message to be sent if a player enters too many args while force starting:
     too-many-args: "&#ff6e6e⚠ &#ff7f6eThat's too many args weirdo."
   # Message to be sent if a player enters just "/cmg"
-    info-command: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg <forcestart | reload>"
+    info: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg <forcestart | reload>"
 
 misc:
   # Should a noteblock pling (minecraft:block.note_block.pling) play to players who correctly complete a minigame?
