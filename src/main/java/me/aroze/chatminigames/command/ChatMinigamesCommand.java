@@ -1,5 +1,6 @@
 package me.aroze.chatminigames.command;
 
+import me.aroze.chatminigames.ChatMinigames;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,8 @@ public class ChatMinigamesCommand implements CommandExecutor {
 
         if (args.length == 1 && (args[0].equals("reload") || args[0].equals("rl"))) {
             // reload logic
+            instance.reloadConfig();
+            sender.sendMessage(color(instance.getConfig().getString("messages.other.reload")));
             return true;
         }
 
