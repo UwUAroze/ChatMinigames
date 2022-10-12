@@ -151,7 +151,7 @@ messages:
   # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
   # Message to be sent if a player attempts to force start a game without specifying one:
-    no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg forcestart <Random | Unscramble | Rush | Math>"
+    no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg [force]start <Random | Unscramble | Rush | Math>"
   # Message to be sent if a player attempts to force start a game that does not exist:
     invalid-game: "&#ff6e6e⚠ &#ff7f6eThat game doesn't exist, dummy!"
   # Message to be sent if a player enters too many args while force starting:

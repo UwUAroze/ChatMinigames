@@ -1,12 +1,18 @@
 package me.aroze.chatminigames;
 
+import me.aroze.chatminigames.minigames.Math;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
-import static me.aroze.chatminigames.ChatMinigames.*;
+import static me.aroze.chatminigames.ChatMinigames.instance;
+import static me.aroze.chatminigames.minigames.Math.*;
+import static me.aroze.chatminigames.minigames.MinigameManager.startingTime;
+import static me.aroze.chatminigames.minigames.Rush.*;
+import static me.aroze.chatminigames.minigames.Unscramble.*;
+import static me.aroze.chatminigames.utils.ChatUtils.color;
 
 public class ChatListener implements Listener {
 
@@ -94,18 +100,18 @@ public class ChatListener implements Listener {
     public String makeTimestamp(double milliseconds) {
         StringBuilder timestamp = new StringBuilder();
 
-        double seconds = Math.round(milliseconds / 10) / 100.0; // this rounds to 2dp, along with converting to seconds
+        double seconds = java.lang.Math.round(milliseconds / 10) / 100.0; // this rounds to 2dp, along with converting to seconds
         int minutes = (int) ((milliseconds / 1000) / 60);
 
         if (minutes == 1) {
             seconds -= 60;
-            seconds = Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
+            seconds = java.lang.Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
             timestamp.append("1 minute and ");
         }
 
         else if (minutes > 0) {
             seconds -= 60 * minutes;
-            seconds = Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
+            seconds = java.lang.Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
             timestamp.append(minutes).append(" minutes and ");
         }
 

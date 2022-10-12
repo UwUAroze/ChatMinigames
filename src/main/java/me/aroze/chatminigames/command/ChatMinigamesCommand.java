@@ -1,13 +1,12 @@
 package me.aroze.chatminigames.command;
 
-import me.aroze.chatminigames.ChatMinigames;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import static me.aroze.chatminigames.ChatMinigames.color;
-import static me.aroze.chatminigames.ChatMinigames.startGame;
 import static me.aroze.chatminigames.ChatMinigames.instance;
+import static me.aroze.chatminigames.minigames.MinigameManager.startGame;
+import static me.aroze.chatminigames.utils.ChatUtils.color;
 
 public class ChatMinigamesCommand implements CommandExecutor {
     @Override
@@ -24,7 +23,6 @@ public class ChatMinigamesCommand implements CommandExecutor {
         }
 
         if (args.length == 1 && (args[0].equals("reload") || args[0].equals("rl"))) {
-            // reload logic
             instance.reloadConfig();
             sender.sendMessage(color(instance.getConfig().getString("messages.other.reload")));
             return true;
@@ -44,18 +42,10 @@ public class ChatMinigamesCommand implements CommandExecutor {
 
             String selectedGame = args[1].toLowerCase();
             switch (selectedGame) {
-                case "random":
-                    startGame(0);
-                    return true;
-                case "unscramble":
-                    startGame(1);
-                    return true;
-                case "rush":
-                    startGame(2);
-                    return true;
-                case "math":
-                    startGame(3);
-                    return true;
+                case "random": startGame(0); return true;
+                case "math": startGame(1); return true;
+                case "rush": startGame(2); return true;
+                case "unscramble": startGame(3); return true;
                 default:
                     sender.sendMessage(color(instance.getConfig().getString("messages.other.invalid-game")));
                     return true;
