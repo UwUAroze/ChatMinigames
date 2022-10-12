@@ -89,9 +89,13 @@ rewards:
   math: 'addcoins {player} 100'
   rush: 'addcoins {player} 100'
   unscramble: 'addcoins {player} 100'
+  reactionTime: 'addcoins {player} 100'
 
 
 messages:
+  starting-hover: # Text to be shown upon hovering over the game start message
+    reactionTime: "&#ffd4e3&oPsst.. click me!"
+
   game-start: # Messages to broadcast when a specific game starts
     math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}
       - "&7&m                            "
@@ -116,6 +120,12 @@ messages:
       - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
       - "&#ffb3a6Word: &#ff8787{scrambledWord}"
       - "&7&m                            "
+    reactionTime: # No placeholders
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
+      - "                                                       "
+      - "&#ffb3a6Click this message the fastest for &#ff8787100 coins!"
+      - "&7&m                            "
 
 
   answered-correctly-broadcast: # Messages to broadcast for when a player completes a specific game
@@ -139,27 +149,34 @@ messages:
       - "&#ffb3a6{player} correctly answered in &#ff8787{elapsedTime}"
       - "&#ffb3a6The word was: &#ff8787{actualWord}"
       - "&7&m                            "
+    reactionTime: # Available placeholders: {elapsedTime}, {player}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
+      - ""
+      - "&#ffb3a6{player} clicked the message in &#ff8787{elapsedTime}"
+      - "&7&m                            "
 
 
   answered-correctly-private: # Private message to be sent to a player who completes a specific game
     math: "&7&oCorrectly answered math equation, &#ffb3a6&o+100 Coins"
     rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
     unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+    reactionTime: "&7&oFirst to click, &#ffb3a6&o+100 Coins"
 
 
   other:
   # Permission message for all ChatMinigame commands:
     no-permission: "&#ff6e6e⚠ &#ff7f6eYou aren't allowed to do this! smh!"
   # Message to be sent if a player attempts to force start a game without specifying one:
-    no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg [force]start <Random | Unscramble | Rush | Math>"
+    no-game-specified: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg [force]start <Random | Unscramble | Rush | Math | ReactionTime>"
   # Message to be sent if a player attempts to force start a game that does not exist:
     invalid-game: "&#ff6e6e⚠ &#ff7f6eThat game doesn't exist, dummy!"
   # Message to be sent if a player enters too many args while force starting:
     too-many-args: "&#ff6e6e⚠ &#ff7f6eThat's too many args weirdo."
   # Message to be sent if a player enters just "/cmg"
-    info: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg <forcestart | reload>"
+    info: "&#ff6e6e⚠ &#ff7f6eSyntax: /cmg <[force]start | reload>"
   # Message to be sent on config reload
-    reload: "&#ff6e6e✔ &#ff7f6eChatMinigames: Config reloaded!"
+    reload: "&#bfffc6✔ &#bfffc6Config reloaded!"
 
 misc:
   # Should a noteblock pling (minecraft:block.note_block.pling) play to players who correctly complete a minigame?

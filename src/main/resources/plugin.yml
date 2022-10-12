@@ -4,7 +4,8 @@ main: me.aroze.chatminigames.ChatMinigames
 api-version: 1.13
 authors: [ Aroze ]
 description: A lightweight, open-sourced and customizable plugin for chat minigames
-website: aroze.me
+website: https://github.com/UwUAroze/ChatMinigames
 commands:
+  clickcommand: {}
   chatminigames:
     aliases: [ cmg ]

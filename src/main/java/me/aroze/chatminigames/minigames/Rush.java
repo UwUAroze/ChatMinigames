@@ -1,7 +1,7 @@
 package me.aroze.chatminigames.minigames;
 
-import me.aroze.chatminigames.utils.ChatUtils;
 import me.aroze.chatminigames.utils.WordUtils;
+import me.aroze.chatminigames.utils.santa.ChatUtils;
 import org.bukkit.Bukkit;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
@@ -20,7 +20,7 @@ public class Rush {
                     .append(instance.getConfig().getStringList("messages.game-start.rush").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.color(messageToBroadcast.toString().replace("{rushWord}", rushWord)));
+        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString().replace("{rushWord}", rushWord)));
     }
 
 }

@@ -1,6 +1,5 @@
-package me.aroze.chatminigames;
+package me.aroze.chatminigames.listener;
 
-import me.aroze.chatminigames.minigames.Math;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
@@ -9,10 +8,12 @@ import org.bukkit.event.Listener;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
 import static me.aroze.chatminigames.minigames.Math.*;
+import static me.aroze.chatminigames.minigames.MinigameManager.resetGames;
 import static me.aroze.chatminigames.minigames.MinigameManager.startingTime;
 import static me.aroze.chatminigames.minigames.Rush.*;
 import static me.aroze.chatminigames.minigames.Unscramble.*;
-import static me.aroze.chatminigames.utils.ChatUtils.color;
+import static me.aroze.chatminigames.utils.MiscUtils.makeTimestamp;
+import static me.aroze.chatminigames.utils.santa.ChatUtils.colored;
 
 public class ChatListener implements Listener {
 
@@ -29,7 +30,7 @@ public class ChatListener implements Listener {
                         .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.math").size() - 1 == i ? "" : "\n");
             }
 
-            Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+            Bukkit.broadcastMessage(colored(messageToBroadcast.toString()
                     .replace("{mathNum1}", mathNum1 + "")
                     .replace("{mathNum2}", mathNum2 + "")
                     .replace("{mathOperation}", mathOperation + "")
@@ -37,12 +38,11 @@ public class ChatListener implements Listener {
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
-            e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.math")));
+            e.getPlayer().sendMessage(colored(instance.getConfig().getString("messages.answered-correctly-private.math")));
             Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.math").replace("{player}", e.getPlayer().getName())));
             if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("misc.noteblock-volume"), (float) instance.getConfig().getDouble("misc.noteblock-pitch"));
 
-            mathAnswer = "";
-
+            resetGames();
             return;
         }
 
@@ -57,16 +57,17 @@ public class ChatListener implements Listener {
                         .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.rush").size() - 1 == i ? "" : "\n");
             }
 
-            Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+            Bukkit.broadcastMessage(colored(messageToBroadcast.toString()
                     .replace("{rushWord}", rushWord)
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
-            e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.rush")));
+            e.getPlayer().sendMessage(colored(instance.getConfig().getString("messages.answered-correctly-private.rush")));
             Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.rush").replace("{player}", e.getPlayer().getName())));
             if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("misc.noteblock-volume"), (float) instance.getConfig().getDouble("misc.noteblock-pitch"));
 
-            rushWord = "";
+            resetGames();
+            return;
         }
 
         if (!actualWord.isEmpty() && e.getMessage().equalsIgnoreCase(actualWord)) {
@@ -80,44 +81,20 @@ public class ChatListener implements Listener {
                         .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.unscramble").size() - 1 == i ? "" : "\n");
             }
 
-            Bukkit.broadcastMessage(color(messageToBroadcast.toString()
+            Bukkit.broadcastMessage(colored(messageToBroadcast.toString()
                     .replace("{actualWord}", actualWord)
                     .replace("{scrambledWord}", scrambledWord)
                     .replace("{player}", e.getPlayer().getName())
                     .replace("{elapsedTime}", makeTimestamp(System.currentTimeMillis() - startingTime))));
 
-            e.getPlayer().sendMessage(color(instance.getConfig().getString("messages.answered-correctly-private.unscramble")));
+            e.getPlayer().sendMessage(colored(instance.getConfig().getString("messages.answered-correctly-private.unscramble")));
             Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.unscramble").replace("{player}", e.getPlayer().getName())));
             if (instance.getConfig().getBoolean("misc.play-noteblock-pling")) e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, (float) instance.getConfig().getDouble("misc.noteblock-volume"), (float) instance.getConfig().getDouble("misc.noteblock-pitch"));
 
-            actualWord = "";
-            scrambledWord = "";
-
+            resetGames();
+            return;
         }
 
-    }
-
-    public String makeTimestamp(double milliseconds) {
-        StringBuilder timestamp = new StringBuilder();
-
-        double seconds = java.lang.Math.round(milliseconds / 10) / 100.0; // this rounds to 2dp, along with converting to seconds
-        int minutes = (int) ((milliseconds / 1000) / 60);
-
-        if (minutes == 1) {
-            seconds -= 60;
-            seconds = java.lang.Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
-            timestamp.append("1 minute and ");
-        }
-
-        else if (minutes > 0) {
-            seconds -= 60 * minutes;
-            seconds = java.lang.Math.round(seconds * 100) / 100.0; // Re-round when subtracting seconds because floating point rounding shitty shit ;-;
-            timestamp.append(minutes).append(" minutes and ");
-        }
-
-        timestamp.append(seconds).append(" seconds");
-
-        return timestamp.toString();
     }
 
 }

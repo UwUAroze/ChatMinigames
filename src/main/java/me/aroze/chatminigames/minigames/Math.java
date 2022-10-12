@@ -1,6 +1,6 @@
 package me.aroze.chatminigames.minigames;
 
-import me.aroze.chatminigames.utils.ChatUtils;
+import me.aroze.chatminigames.utils.santa.ChatUtils;
 import org.bukkit.Bukkit;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
@@ -48,7 +48,7 @@ public class Math {
                     .append(instance.getConfig().getStringList("messages.game-start.math").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.color(messageToBroadcast.toString()
+        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString()
                 .replace("{mathNum1}", mathNum1 + "")
                 .replace("{mathNum2}", mathNum2 + "")
                 .replace("{mathOperation}", mathOperation + "")));

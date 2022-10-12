@@ -1,14 +1,17 @@
 package me.aroze.chatminigames.minigames;
 
-import me.aroze.chatminigames.utils.ChatUtils;
 import me.aroze.chatminigames.utils.WordUtils;
+import me.aroze.chatminigames.utils.santa.ChatUtils;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
 
 public class Unscramble {
 
-    public static String actualWord, scrambledWord = "";
+    public static String actualWord = "";
+    public static String scrambledWord = "";
 
     public static void start() {
 
@@ -21,7 +24,8 @@ public class Unscramble {
                     .append(instance.getConfig().getStringList("messages.game-start.unscramble").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.color(messageToBroadcast.toString().replace("{scrambledWord}", scrambledWord)));
+        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString().replace("{scrambledWord}", scrambledWord)));
+
     }
 
 }
