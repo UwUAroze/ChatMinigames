@@ -15,14 +15,14 @@ public class ReactionTime {
     public static void start() {
 
         commandString = WordUtils.generateRandomString();
-        StringBuilder messageToBroadcast = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
 
         for (int i=0; i<instance.getConfig().getStringList("messages.game-start.reactionTime").size(); i++) {
-            messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.reactionTime").get(i))
+            temp.append(instance.getConfig().getStringList("messages.game-start.reactionTime").get(i))
                     .append(instance.getConfig().getStringList("messages.game-start.reactionTime").size() - 1 == i ? "" : "\n");
         }
 
-        Message message = new Message(ChatUtils.colored(messageToBroadcast.toString()))
+        Message message = new Message(ChatUtils.colored(temp.toString()))
                 .hover(instance.getConfig().getString("messages.starting-hover.reactionTime"))
                 .command("/clickcommand " + commandString);
 

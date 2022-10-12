@@ -5,6 +5,7 @@ import me.aroze.chatminigames.utils.santa.ChatUtils;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
 
@@ -17,14 +18,15 @@ public class Unscramble {
 
         actualWord = WordUtils.getRandomWord();
         scrambledWord = WordUtils.shuffleString(actualWord);
-        StringBuilder messageToBroadcast = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
 
         for (int i=0; i<instance.getConfig().getStringList("messages.game-start.unscramble").size(); i++) {
-            messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.unscramble").get(i))
+            temp.append(instance.getConfig().getStringList("messages.game-start.unscramble").get(i))
                     .append(instance.getConfig().getStringList("messages.game-start.unscramble").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString().replace("{scrambledWord}", scrambledWord)));
+        String message = ChatUtils.colored(temp.toString().replace("{scrambledWord}", scrambledWord));
+        for (Player player : Bukkit.getOnlinePlayers()) player.sendMessage(message);
 
     }
 

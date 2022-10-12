@@ -2,6 +2,7 @@ package me.aroze.chatminigames.minigames;
 
 import me.aroze.chatminigames.utils.santa.ChatUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
 
@@ -13,7 +14,7 @@ public class Math {
 
     public static void start() {
 
-        StringBuilder messageToBroadcast = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
 
         int randomOperation = (int) ((java.lang.Math.random()* 3));
         switch (randomOperation) {
@@ -44,14 +45,16 @@ public class Math {
         }
 
         for (int i=0; i<instance.getConfig().getStringList("messages.game-start.math").size(); i++) {
-            messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.math").get(i))
+            temp.append(instance.getConfig().getStringList("messages.game-start.math").get(i))
                     .append(instance.getConfig().getStringList("messages.game-start.math").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString()
+        String message = ChatUtils.colored(temp.toString()
                 .replace("{mathNum1}", mathNum1 + "")
                 .replace("{mathNum2}", mathNum2 + "")
-                .replace("{mathOperation}", mathOperation + "")));
+                .replace("{mathOperation}", mathOperation + ""));
+
+        for (Player player : Bukkit.getOnlinePlayers()) player.sendMessage(message);
     }
 
 }

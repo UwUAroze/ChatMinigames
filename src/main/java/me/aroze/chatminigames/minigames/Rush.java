@@ -3,6 +3,7 @@ package me.aroze.chatminigames.minigames;
 import me.aroze.chatminigames.utils.WordUtils;
 import me.aroze.chatminigames.utils.santa.ChatUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import static me.aroze.chatminigames.ChatMinigames.instance;
 
@@ -13,14 +14,15 @@ public class Rush {
     public static void start() {
 
         rushWord = WordUtils.getRandomWord();
-        StringBuilder messageToBroadcast = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
 
         for (int i=0; i<instance.getConfig().getStringList("messages.game-start.rush").size(); i++) {
-            messageToBroadcast.append(instance.getConfig().getStringList("messages.game-start.rush").get(i))
+            temp.append(instance.getConfig().getStringList("messages.game-start.rush").get(i))
                     .append(instance.getConfig().getStringList("messages.game-start.rush").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(ChatUtils.colored(messageToBroadcast.toString().replace("{rushWord}", rushWord)));
+        String message = ChatUtils.colored(temp.toString().replace("{rushWord}", rushWord));
+        for (Player player : Bukkit.getOnlinePlayers()) player.sendMessage(message);
     }
 
 }

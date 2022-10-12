@@ -24,15 +24,16 @@ public class ClickCommand implements CommandExecutor {
         if (!args[0].equals(commandString)) return true;
         if (!(sender instanceof Player player)) return true;
 
-        StringBuilder messageToBroadcast = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
         for (int i=0; i<instance.getConfig().getStringList("messages.answered-correctly-broadcast.reactionTime").size(); i++) {
-            messageToBroadcast.append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.reactionTime").get(i))
+            temp.append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.reactionTime").get(i))
                     .append(instance.getConfig().getStringList("messages.answered-correctly-broadcast.reactionTime").size() - 1 == i ? "" : "\n");
         }
 
-        Bukkit.broadcastMessage(colored(messageToBroadcast.toString()
+        String message = colored(temp.toString()
                 .replace("{player}", player.getName())
-                .replace("{elapsedTime}", MiscUtils.makeTimestamp(System.currentTimeMillis() - startingTime))));
+                .replace("{elapsedTime}", MiscUtils.makeTimestamp(System.currentTimeMillis() - startingTime)));
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) onlinePlayer.sendMessage(message);
 
         player.sendMessage(colored(instance.getConfig().getString("messages.answered-correctly-private.reactionTime")));
         Bukkit.getScheduler().runTask(instance, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("rewards.reactionTime").replace("{player}", player.getName())));
