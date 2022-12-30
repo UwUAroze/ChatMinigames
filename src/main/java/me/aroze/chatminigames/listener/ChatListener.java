@@ -18,7 +18,7 @@ import static me.aroze.chatminigames.utils.santa.ChatUtils.colored;
 
 public class ChatListener implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onChat(org.bukkit.event.player.AsyncPlayerChatEvent e) {
 
         if (!mathAnswer.isEmpty() && e.getMessage().equals(mathAnswer)) {
