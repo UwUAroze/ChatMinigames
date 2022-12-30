@@ -21,6 +21,8 @@ public class ChatListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onChat(org.bukkit.event.player.AsyncPlayerChatEvent e) {
 
+        if (e.isCancelled() && instance.getConfig().getBoolean("misc.ignore-cancelled-messages")) return;
+
         if (!mathAnswer.isEmpty() && e.getMessage().equals(mathAnswer)) {
 
             if (instance.getConfig().getBoolean("misc.cancel-messages")) e.setCancelled(true);
