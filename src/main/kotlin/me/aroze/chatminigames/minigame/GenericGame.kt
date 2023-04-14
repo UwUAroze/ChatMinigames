@@ -1,15 +1,26 @@
 package me.aroze.chatminigames.minigame
 
-import me.aroze.arozeutils.minecraft.generic.coloured
-import org.bukkit.Bukkit
+import me.aroze.chatminigames.ChatMinigames.Companion.config
 
-class GenericGame(
-    val answer : String,
-    val question : String,
-) {
+open class GenericGame {
 
-    fun start() {
-        Bukkit.broadcastMessage(question.coloured())
+    lateinit var type: GameType
+    val values: HashMap<String, String> = hashMapOf()
+
+    fun start() : GenericGame {
+
+        val broadcast = config.getString("todo")
+        for (value in values) {
+            broadcast.replace("{${value.key}}", value.value)
+        }
+
+        return this
     }
 
+}
+
+enum class GameType(val type: String) {
+    UNSCRAMBLE("unscramble"),
+    RUSH("rush"),
+    MATH("math")
 }
