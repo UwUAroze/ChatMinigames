@@ -1,0 +1,26 @@
+########################################################################################################################
+
+# hii welcome to ChatMinigames: a lightweight, open-sourced and customizable plugin for chat minigames
+# Source code: https://github.com/UwUAroze/ChatMinigames
+
+# Config.yml:
+# After making any changes, make sure to reload with /cmg reload
+# To reset the config, delete this file, then restart your server or /cmg reload.
+# Default config: https://github.com/UwUAroze/ChatMinigames/tree/master/src/main/resources/config.yml
+
+# Formatting:
+# Hex (&#<hex code>) and regular colour codes (&<code>) are supported:
+# Example: "Woah &cRed&r!!!"
+# Hex example: "Woah, a &#ff6e6eFancier Red&r!!"
+
+########################################################################################################################
+
+# Comma separated list of words to be randomised and used in applicable minigames; namely Rush and Unscramble
+wordList:
+  "Attractive, Baguette, Bathtub, Bedrock, Broadcast, Brother, Ceiling, Character, Choke, Compartment, Competitive,
+  Conclusion, Confession, Couple, Cucumber, Daddy, Defenestration, Diamond, Discombobulated, Duvet, Eggplant, Emerald,
+  Extension, Fishing, Floor, Generator, Greeting, Hypothesis, Immortal, Improvement, Invasion, Iron, Journal, Knowledge,
+  Legend, Marriage, Mommy, Multiplier, Nerd, Obsidian, Photosynthesis, Pillow, Prestige, Raid, Sister, Stick, Suck,
+  Summer, Swallow, Transparent, Treat, Unique, Villager, Vomit, Winter"
+
+########################################################################################################################
