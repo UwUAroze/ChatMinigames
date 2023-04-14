@@ -23,7 +23,7 @@ repositories {
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "com.github.uwuaroze:arozeutils:dc4ee19c2f"
+    implementation "com.github.uwuaroze:arozeutils:b51216e6e0"
 }
 
 kotlin {
