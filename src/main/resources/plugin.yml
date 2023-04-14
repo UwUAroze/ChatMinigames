@@ -1,0 +1,3 @@
+name: ChatMinigames
+version: '${version}'
+main: me.aroze.chatminigames.ChatMinigames
