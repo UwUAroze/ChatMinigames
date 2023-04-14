@@ -16,6 +16,8 @@
 ########################################################################################################################
 
 # Comma separated list of words to be randomised and used in applicable minigames; namely Rush and Unscramble
+# Spaces will be ignored.
+
 wordList:
   "Attractive, Baguette, Bathtub, Bedrock, Broadcast, Brother, Ceiling, Character, Choke, Compartment, Competitive,
   Conclusion, Confession, Couple, Cucumber, Daddy, Defenestration, Diamond, Discombobulated, Duvet, Eggplant, Emerald,
