@@ -29,7 +29,7 @@ enum class GameType(private val configName: String? = null) {
     REACTIONTIME("reactionTime"),
     ;
 
-    private fun getConfigName() = configName ?: name.lowercase()
+    fun getConfigName() = configName ?: name.lowercase()
 
     fun getMessage(type: String) : String {
         return when(type) {

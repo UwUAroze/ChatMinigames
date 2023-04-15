@@ -31,6 +31,22 @@ wordList:
 
 ########################################################################################################################
 
+# List of commands to be executed when a player wins minigames, presumably to reward them.
+rewards:
+  math:
+    - "eco give {player} 100"
+    - "example command"
+
+  rush:
+    - "eco give {player} 100"
+    - "example"
+
+  unscramble:
+    - "eco give {player} 100"
+    - "example"
+
+########################################################################################################################
+
 minigame-messages:
   starting-hover: # Text to be shown up on hovering over the game start message
     reactionTime: "&#ffd4e3&oPsst.. click me!"

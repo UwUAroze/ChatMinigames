@@ -3,6 +3,7 @@ package me.aroze.chatminigames.minigame
 import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
 import me.aroze.arozeutils.kotlin.makeTimestamp
 import me.aroze.arozeutils.minecraft.generic.coloured
+import me.aroze.arozeutils.minecraft.generic.sync
 import me.aroze.chatminigames.ChatMinigames.Companion.config
 import me.aroze.chatminigames.command.TestCommand.send
 import org.bukkit.Bukkit
@@ -43,9 +44,12 @@ object GameHandler: Listener {
                     .coloured()
             )
 
-            // TODO: run reward command
-
-            runningGame = null
+            sync { _ ->
+                for (command in config.getStringList("rewards.${runningGame!!.type.getConfigName()}")) {
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replacePlaceholders(it.values))
+                }
+                runningGame = null
+            }
         }
     }
 
