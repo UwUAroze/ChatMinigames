@@ -4,6 +4,7 @@ import me.aroze.arozeutils.kotlin.type.Randomiser
 import me.aroze.arozeutils.minecraft.FancyPlugin
 import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.chatminigames.command.TestCommand
+import me.aroze.chatminigames.minigame.GameHandler
 import org.bukkit.Bukkit
 import org.bukkit.configuration.file.FileConfiguration
 
@@ -31,6 +32,7 @@ class ChatMinigames : FancyPlugin() {
         Bukkit.broadcastMessage("&#ab23cdAAAAA".coloured())
 
         TestCommand
+        Bukkit.getPluginManager().registerEvents(GameHandler, this)
     }
 
 }

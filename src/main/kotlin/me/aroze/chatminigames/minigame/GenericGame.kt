@@ -3,9 +3,10 @@ package me.aroze.chatminigames.minigame
 import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
 import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.chatminigames.ChatMinigames.Companion.config
+import me.aroze.chatminigames.minigame.GameHandler.runningGame
 import org.bukkit.Bukkit
 
-open class GenericGame(private val type: GameType) {
+open class GenericGame(val type: GameType) {
 
     val values: HashMap<String, String> = hashMapOf()
 
