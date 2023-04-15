@@ -1,6 +1,7 @@
 package me.aroze.chatminigames.minigame
 
 import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
+import me.aroze.arozeutils.kotlin.makeTimestamp
 import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.chatminigames.command.TestCommand.send
 import org.bukkit.Bukkit
@@ -15,6 +16,7 @@ object GameHandler: Listener {
 
     @EventHandler
     fun onChat(event: AsyncPlayerChatEvent) {
+        val endTime = System.currentTimeMillis()
         runningGame?.let {
             // TODO: if dont allow cancelled messages and message is cancelled, return
             if (event.message == runningGame!!.values["answer"]) {
@@ -22,6 +24,7 @@ object GameHandler: Listener {
                 // TODO: event.isCancelled = config.whatever
 
                 it.values["player"] = event.player.name
+                it.values["elapsedTime"] = (endTime - it.startTime).makeTimestamp()
 
                 Bukkit.broadcastMessage(
                     it.type.getMessage("answeredBroadcast")

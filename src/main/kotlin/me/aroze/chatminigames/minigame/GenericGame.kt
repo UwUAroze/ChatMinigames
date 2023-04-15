@@ -5,12 +5,15 @@ import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.chatminigames.ChatMinigames.Companion.config
 import me.aroze.chatminigames.minigame.GameHandler.runningGame
 import org.bukkit.Bukkit
+import kotlin.math.round
 
 open class GenericGame(val type: GameType) {
 
     val values: HashMap<String, String> = hashMapOf()
+    var startTime: Long = 0
 
     fun start(): GenericGame {
+        startTime = System.currentTimeMillis()
         val broadcast = type.getMessage("startBroadcast")
             .replacePlaceholders(values)
 
