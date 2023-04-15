@@ -1,19 +1,19 @@
 package me.aroze.chatminigames.minigame
 
+import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
+import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.chatminigames.ChatMinigames.Companion.config
+import org.bukkit.Bukkit
 
-open class GenericGame {
+open class GenericGame(private val type: GameType) {
 
-    lateinit var type: GameType
     val values: HashMap<String, String> = hashMapOf()
 
-    fun start() : GenericGame {
+    fun start(): GenericGame {
+        val broadcast = type.getMessage("startBroadcast")
+            .replacePlaceholders(values)
 
-        val broadcast = config.getString("todo")
-        for (value in values) {
-            broadcast.replace("{${value.key}}", value.value)
-        }
-
+        Bukkit.broadcastMessage(broadcast.coloured())
         return this
     }
 
