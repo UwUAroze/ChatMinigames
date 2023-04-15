@@ -113,3 +113,10 @@ minigame-messages:
       - "&7&oFirst to click, &#ffb3a6&o+100 Coins"
 
 ########################################################################################################################
+
+misc-settings:
+  case-sensitive-: false # Should answer checking for unscramble/rush be case-sensitive?
+  cancel-messages: true # Should messages be cancelled if a player correctly answers?
+  ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
+
+########################################################################################################################
