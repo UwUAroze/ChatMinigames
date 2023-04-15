@@ -25,12 +25,14 @@ object GameHandler: Listener {
 
                 Bukkit.broadcastMessage(
                     it.type.getMessage("answeredBroadcast")
-                         .replacePlaceholders(it.values)
+                        .replacePlaceholders(it.values)
+                        .coloured()
                 )
 
                 event.player.sendMessage(
                     it.type.getMessage("answeredPrivate")
                         .replacePlaceholders(it.values)
+                        .coloured()
                 )
 
                 // TODO: run reward command
