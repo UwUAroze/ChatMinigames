@@ -115,7 +115,7 @@ minigame-messages:
 ########################################################################################################################
 
 misc-settings:
-  case-sensitive-: false # Should answer checking for unscramble/rush be case-sensitive?
+  case-sensitive: false # Should answer checking for unscramble/rush be case-sensitive?
   cancel-messages: true # Should messages be cancelled if a player correctly answers?
   ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
 
