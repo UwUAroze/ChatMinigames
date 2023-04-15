@@ -3,6 +3,7 @@ package me.aroze.chatminigames.minigame
 import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
 import me.aroze.arozeutils.kotlin.makeTimestamp
 import me.aroze.arozeutils.minecraft.generic.coloured
+import me.aroze.chatminigames.ChatMinigames.Companion.config
 import me.aroze.chatminigames.command.TestCommand.send
 import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
@@ -18,7 +19,10 @@ object GameHandler: Listener {
     fun onChat(event: AsyncPlayerChatEvent) {
         val endTime = System.currentTimeMillis()
         runningGame?.let {
-            // TODO: if dont allow cancelled messages and message is cancelled, return
+
+            val settings = config.getConfigurationSection("misc-settings")
+            if (settings.getBoolean("ignore-cancelled-messages") && event.isCancelled) return@let
+
             if (event.message == runningGame!!.values["answer"]) {
                 // TODO: allow case insensitive answer if config says so
                 // TODO: event.isCancelled = config.whatever
