@@ -19,8 +19,19 @@ open class GenericGame {
 
 }
 
-enum class GameType(val type: String) {
-    UNSCRAMBLE("unscramble"),
-    RUSH("rush"),
-    MATH("math")
+enum class GameType(private val configName: String? = null) {
+    UNSCRAMBLE, RUSH, MATH,
+    REACTIONTIME("reactionTime"),
+    ;
+
+    private fun getConfigName() = configName ?: name.lowercase()
+
+    fun getMessage(type: String) : String {
+        return when(type) {
+            "startBroadcast" -> config.getStringList("minigame-messages.game-start.${getConfigName()}").joinToString("\n")
+            "answeredBroadcast" -> config.getStringList("minigame-messages.answered-correctly-broadcast.${getConfigName()}").joinToString("\n")
+            "answeredPrivate" -> config.getStringList("minigame-messages.answered-correctly-private.${getConfigName()}").joinToString("\n")
+            else -> "this shouldnt happen"
+        }
+    }
 }
