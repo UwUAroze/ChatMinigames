@@ -47,6 +47,15 @@ rewards:
 
 ########################################################################################################################
 
+effects:
+  sound: # Should a sound effect play to a winning player? (You can test these with /playsound)
+    enabled: true
+    sound: "block.note_block.pling"
+    volume: 1 # 0-1
+    pitch: 2 # 0-2
+
+########################################################################################################################
+
 minigame-messages:
   starting-hover: # Text to be shown up on hovering over the game start message
     reactionTime: "&#ffd4e3&oPsst.. click me!"

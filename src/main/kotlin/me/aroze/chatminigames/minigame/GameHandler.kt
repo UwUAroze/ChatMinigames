@@ -7,6 +7,7 @@ import me.aroze.arozeutils.minecraft.generic.sync
 import me.aroze.chatminigames.ChatMinigames.Companion.config
 import me.aroze.chatminigames.command.TestCommand.send
 import org.bukkit.Bukkit
+import org.bukkit.Sound
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.AsyncPlayerChatEvent
@@ -48,6 +49,17 @@ object GameHandler: Listener {
                 for (command in config.getStringList("rewards.${runningGame!!.type.getConfigName()}")) {
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replacePlaceholders(it.values))
                 }
+
+                val sounds = config.getConfigurationSection("effects.sound")
+                if (sounds.getBoolean("enabled")) {
+                    Bukkit.getPlayer(it.values["player"]).playSound(
+                        Bukkit.getPlayer(it.values["player"]).location,
+                        Sound.valueOf(sounds.getString("sound").replace(".", "_").uppercase()),
+                        sounds.get("volume").toString().toFloat(),
+                        sounds.get("pitch").toString().toFloat()
+                    )
+                }
+
                 runningGame = null
             }
         }
