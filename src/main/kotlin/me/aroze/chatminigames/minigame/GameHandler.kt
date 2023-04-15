@@ -24,7 +24,7 @@ object GameHandler: Listener {
             if (settings.getBoolean("ignore-cancelled-messages") && event.isCancelled) return
 
             if (settings.getBoolean("case-sensitive") && event.message != runningGame!!.values["answer"]) return
-            else if (event.message.equals(runningGame!!.values["answer"], true)) return
+            else if (!event.message.equals(runningGame!!.values["answer"], true)) return
 
             event.isCancelled = settings.getBoolean("cancel-winning-answers")
 
