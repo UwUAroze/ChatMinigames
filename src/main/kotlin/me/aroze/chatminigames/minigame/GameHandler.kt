@@ -21,31 +21,32 @@ object GameHandler: Listener {
         runningGame?.let {
 
             val settings = config.getConfigurationSection("misc-settings")
-            if (settings.getBoolean("ignore-cancelled-messages") && event.isCancelled) return@let
+            if (settings.getBoolean("ignore-cancelled-messages") && event.isCancelled) return
 
-            if (event.message == runningGame!!.values["answer"]) {
-                // TODO: allow case insensitive answer if config says so
-                // TODO: event.isCancelled = config.whatever
+            if (settings.getBoolean("case-sensitive") && event.message != runningGame!!.values["answer"]) return
+            else if (event.message.equals(runningGame!!.values["answer"], true)) return
 
-                it.values["player"] = event.player.name
-                it.values["elapsedTime"] = (endTime - it.startTime).makeTimestamp()
+            // TODO: allow case insensitive answer if config says so
+            // TODO: event.isCancelled = config.whatever
 
-                Bukkit.broadcastMessage(
-                    it.type.getMessage("answeredBroadcast")
-                        .replacePlaceholders(it.values)
-                        .coloured()
-                )
+            it.values["player"] = event.player.name
+            it.values["elapsedTime"] = (endTime - it.startTime).makeTimestamp()
 
-                event.player.sendMessage(
-                    it.type.getMessage("answeredPrivate")
-                        .replacePlaceholders(it.values)
-                        .coloured()
-                )
+            Bukkit.broadcastMessage(
+                it.type.getMessage("answeredBroadcast")
+                    .replacePlaceholders(it.values)
+                    .coloured()
+            )
 
-                // TODO: run reward command
+            event.player.sendMessage(
+                it.type.getMessage("answeredPrivate")
+                    .replacePlaceholders(it.values)
+                    .coloured()
+            )
 
-                runningGame = null
-            }
+            // TODO: run reward command
+
+            runningGame = null
         }
     }
 
