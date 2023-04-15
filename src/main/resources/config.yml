@@ -116,7 +116,7 @@ minigame-messages:
 
 misc-settings:
   case-sensitive: false # Should answer checking for unscramble/rush be case-sensitive?
-  cancel-messages: true # Should messages be cancelled if a player correctly answers?
+  cancel-winning-answers: true # Should the player's message be cancelled (not be sent) if it was a correct answer?
   ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
 
 ########################################################################################################################

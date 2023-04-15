@@ -26,8 +26,7 @@ object GameHandler: Listener {
             if (settings.getBoolean("case-sensitive") && event.message != runningGame!!.values["answer"]) return
             else if (event.message.equals(runningGame!!.values["answer"], true)) return
 
-            // TODO: allow case insensitive answer if config says so
-            // TODO: event.isCancelled = config.whatever
+            event.isCancelled = settings.getBoolean("cancel-winning-answers")
 
             it.values["player"] = event.player.name
             it.values["elapsedTime"] = (endTime - it.startTime).makeTimestamp()
