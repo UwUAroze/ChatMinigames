@@ -52,13 +52,14 @@ minigame-messages:
       - "&#ffb3a6Word: &#ff8787{word}"
       - "&7&m                            "
 
-    unscramble: # Available placeholders: {scrambledWord}
+    unscramble: # Available placeholders: {scrambled}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
       - ""
       - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
-      - "&#ffb3a6Word: &#ff8787{scrambledWord}"
+      - "&#ffb3a6Word: &#ff8787{scrambled}"
       - "&7&m                            "
+
     reactionTime: # No available placeholders.
     # PS: Extra space increases the clickable area for this minigame.
       - "&7&m                            "
@@ -69,26 +70,27 @@ minigame-messages:
 
 
   answered-correctly-broadcast: # Messages to broadcast for when a player completes a specific game
-    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}, {mathAnswer}, {elapsedTime}, {player}
+    math: # Available placeholders: {num1}, {num2}, {operation}, {answer}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
       - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
-      - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
+      - "&#ffb3a6Equation: &#ff8787{num1}{operation}{num2} = {answer}"
       - "&7&m                            "
 
-    rush: # Available placeholders: {word}, {elapsedTime}, {player}
+    rush: # Available placeholders: {answer}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
       - "&#ffb3a6{player} correctly typed the word in &#ff8787{elapsedTime}"
-      - "&#ffb3a6Word: &#ff8787{word}"
+      - "&#ffb3a6Word: &#ff8787{answer}"
       - "&7&m                            "
 
-    unscramble: # Available placeholders: {scrambledWord}, {actualWord}, {elapsedTime}, {player}
+    unscramble: # Available placeholders: {scrambled}, {answer}, {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
       - "&#ffb3a6{player} correctly answered in &#ff8787{elapsedTime}"
-      - "&#ffb3a6The word was: &#ff8787{actualWord}"
+      - "&#ffb3a6The word was: &#ff8787{answer}"
       - "&7&m                            "
+
     reactionTime: # Available placeholders: {elapsedTime}, {player}
       - "&7&m                            "
       - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
@@ -98,9 +100,16 @@ minigame-messages:
 
 
   answered-correctly-private: # Private message to be sent to a player who completes a specific game
-    math: "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Coins"
-    rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
-    unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
-    reactionTime: "&7&oFirst to click, &#ffb3a6&o+100 Coins"
+    math:
+      - "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Coins"
+
+    rush:
+      - "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
+
+    unscramble:
+      - "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+
+    reactionTime:
+      - "&7&oFirst to click, &#ffb3a6&o+100 Coins"
 
 ########################################################################################################################
