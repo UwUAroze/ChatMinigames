@@ -14,6 +14,7 @@ open class GenericGame(private val type: GameType) {
             .replacePlaceholders(values)
 
         Bukkit.broadcastMessage(broadcast.coloured())
+        runningGame = this
         return this
     }
 
