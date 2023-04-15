@@ -13,6 +13,10 @@
 # Example: "Woah &cRed&r!!!"
 # Hex example: "Woah, a &#ff6e6eFancier Red&r!!"
 
+# Placeholders:
+# Some configurable messages support placeholders, for instance the numbers in the math game; these will be clarified
+# in comments surrounding the corresponding config options.
+
 ########################################################################################################################
 
 # Comma separated list of words to be randomised and used in applicable minigames; namely Rush and Unscramble
@@ -24,5 +28,79 @@ wordList:
   Extension, Fishing, Floor, Generator, Greeting, Hypothesis, Immortal, Improvement, Invasion, Iron, Journal, Knowledge,
   Legend, Marriage, Mommy, Multiplier, Nerd, Obsidian, Photosynthesis, Pillow, Prestige, Raid, Sister, Stick, Suck,
   Summer, Swallow, Transparent, Treat, Unique, Villager, Vomit, Winter"
+
+########################################################################################################################
+
+minigame-messages:
+  starting-hover: # Text to be shown up on hovering over the game start message
+    reactionTime: "&#ffd4e3&oPsst.. click me!"
+
+  game-start: # Messages to broadcast when a specific game starts
+    math: # Available placeholders: {num1}, {num2}, {operation}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+      - ""
+      - "&#ffb3a6Correctly answer this the fastest to gain &#ff8787100 coins!"
+      - "&#ffb3a6Equation: &#ff8787{num1}{operation}{num2}"
+      - "&7&m                            "
+
+    rush: # Available placeholders: {word}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
+      - ""
+      - "&#ffb3a6Type the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Word: &#ff8787{word}"
+      - "&7&m                            "
+
+    unscramble: # Available placeholders: {scrambledWord}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
+      - ""
+      - "&#ffb3a6Unscramble the word the fastest for &#ff8787100 coins!"
+      - "&#ffb3a6Word: &#ff8787{scrambledWord}"
+      - "&7&m                            "
+    reactionTime: # No available placeholders.
+    # PS: Extra space increases the clickable area for this minigame.
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
+      - "                                                                  "
+      - "&#ffb3a6Click this message the fastest for &#ff8787100 coins!"
+      - "&7&m                            "
+
+
+  answered-correctly-broadcast: # Messages to broadcast for when a player completes a specific game
+    math: # Available placeholders: {mathNum1}, {mathNum2}, {mathOperation}, {mathAnswer}, {elapsedTime}, {player}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Math"
+      - "&#ffb3a6{player} correctly answered the equation in &#ff8787{elapsedTime}"
+      - "&#ffb3a6Equation: &#ff8787{mathNum1}{mathOperation}{mathNum2} = {mathAnswer}"
+      - "&7&m                            "
+
+    rush: # Available placeholders: {word}, {elapsedTime}, {player}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Rush"
+      - "&#ffb3a6{player} correctly typed the word in &#ff8787{elapsedTime}"
+      - "&#ffb3a6Word: &#ff8787{word}"
+      - "&7&m                            "
+
+    unscramble: # Available placeholders: {scrambledWord}, {actualWord}, {elapsedTime}, {player}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Unscramble"
+      - "&#ffb3a6{player} correctly answered in &#ff8787{elapsedTime}"
+      - "&#ffb3a6The word was: &#ff8787{actualWord}"
+      - "&7&m                            "
+    reactionTime: # Available placeholders: {elapsedTime}, {player}
+      - "&7&m                            "
+      - "&#ffb3a6&lMinigame! &#734841| &#ffb3a6Reaction Time"
+      - ""
+      - "&#ffb3a6{player} clicked the message in &#ff8787{elapsedTime}"
+      - "&7&m                            "
+
+
+  answered-correctly-private: # Private message to be sent to a player who completes a specific game
+    math: "&7&oCorrectly solved math problem, &#ffb3a6&o+100 Coins"
+    rush: "&7&oCorrectly typed word, &#ffb3a6&o+100 Coins"
+    unscramble: "&7&oCorrectly unscrambled word, &#ffb3a6&o+100 Coins"
+    reactionTime: "&7&oFirst to click, &#ffb3a6&o+100 Coins"
 
 ########################################################################################################################
