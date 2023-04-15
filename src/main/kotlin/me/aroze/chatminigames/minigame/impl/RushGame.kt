@@ -4,10 +4,10 @@ import me.aroze.chatminigames.ChatMinigames.Companion.randomisedWords
 import me.aroze.chatminigames.minigame.GameType
 import me.aroze.chatminigames.minigame.GenericGame
 
-object RushGame : GenericGame() {
+object RushGame : GenericGame(GameType.RUSH) {
 
     fun create() : GenericGame {
-        values["rushWord"] = randomisedWords.next().toString()
+        values["answer"] = randomisedWords.next().toString()
         return this.start()
     }
 
