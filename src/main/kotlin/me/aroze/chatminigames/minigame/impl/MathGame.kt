@@ -5,26 +5,33 @@ import me.aroze.arozeutils.kotlin.type.Randomiser
 import me.aroze.chatminigames.ChatMinigames.Companion.config
 import me.aroze.chatminigames.minigame.GameType
 import me.aroze.chatminigames.minigame.GenericGame
+import org.bukkit.configuration.ConfigurationSection
 
 object MathGame : GenericGame(GameType.MATH) {
 
-    val settings = config.getConfigurationSection("extra-game-settings.math.arithmetic")
-    val randomOperation = Randomiser(Operation.values().toList())
-    var randomFactor = Randomiser(divisiblePairsBetween(
-        settings.getInt("division.min-value"),
-        settings.getInt("division.max-value")
+    val settings: ConfigurationSection = config.getConfigurationSection("extra-game-settings.math.arithmetic")
+    private val randomOperation = Randomiser(Operation.values().toList())
+    private var randomFactor = Randomiser(divisiblePairsBetween(
+        settings.getInt("division.min-value"), settings.getInt("division.max-value")
     ))
+
+    private val randomNumber = let {
+        val map = hashMapOf<Operation, Randomiser>()
+        for (operation in arrayOf(Operation.ADDITION, Operation.SUBTRACTION, Operation.MULTIPLICATION)) {
+            val min = settings.getInt("${operation.getType()}.min-value")
+            val max = settings.getInt("${operation.getType()}.max-value")
+            map[operation] = Randomiser((min..max).toList())
+        }
+        map
+    }
 
     override fun create() {
 
         val operation = randomOperation.next() as Operation
         values["operation"] = operation.getSymbol()
 
-        val max = settings.getInt("${operation.getType()}.max-value")
-        val min = settings.getInt("${operation.getType()}.min-value")
-
-        var num1 = (min..max).random()
-        var num2 = (min..max).random()
+        var num1 = randomNumber[operation]!!.next() as Int
+        var num2 = randomNumber[operation]!!.next() as Int
         val answer: Int
 
         when (operation) {
@@ -35,9 +42,10 @@ object MathGame : GenericGame(GameType.MATH) {
                 answer = num1 / num2
             }
             Operation.SUBTRACTION -> {
-                if (!settings.getBoolean("subtraction.allow-negative-answers")) {
-                    num1 = maxOf(num1, num2)
-                    num2 = minOf(num1, num2)
+                if (!settings.getBoolean("subtraction.allow-negative-answers") && num1 < num2) {
+                    val temp = num1
+                    num1 = num2
+                    num2 = temp
                 }
                 answer = num1 - num2
             }
@@ -58,4 +66,4 @@ object MathGame : GenericGame(GameType.MATH) {
         fun getSymbol(): String = settings.getString("${this.getType()}.symbol")
     }
 
-}
+} // hehe line #69
