@@ -58,20 +58,24 @@ effects:
 
 extra-game-settings: # Extra settings unique to individual games
   math:
-    arithmetic: # Settings for arithmetic values
+    arithmetic: # Settings for arithmetic questions
       multiplication:
+        symbol: "x"
         min-value: 2
         max-value: 12
 
       division: # Only numbers between these values that divide to make a whole number will be chosen.
+        symbol: "÷"
         min-value: 2
         max-value: 100
 
       addition:
+        symbol: "+"
         min-value: 5
         max-value: 50
 
       subtraction:
+        symbol: "-"
         min-value: 5
         max-value: 50
         allow-negative-answers: false # Should equations with negative answers be allowed? (e.g. 26 - 30 = -4)

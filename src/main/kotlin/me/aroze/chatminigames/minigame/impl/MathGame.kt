@@ -18,7 +18,7 @@ object MathGame : GenericGame(GameType.MATH) {
     override fun create() {
 
         val operation = randomOperation.next() as Operation
-        values["operation"] = operation.symbol
+        values["operation"] = operation.getSymbol()
 
         val max = settings.getInt("${operation.getType()}.max-value")
         val min = settings.getInt("${operation.getType()}.min-value")
@@ -52,14 +52,10 @@ object MathGame : GenericGame(GameType.MATH) {
 
     }
 
-    private enum class Operation(val symbol: String) {
-        ADDITION("+"),
-        SUBTRACTION("-"),
-        MULTIPLICATION("*"),
-        DIVISION("÷"),
-        ;
-
+    private enum class Operation {
+        ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION;
         fun getType() : String = this.name.lowercase()
+        fun getSymbol(): String = settings.getString("${this.getType()}.symbol")
     }
 
 }
