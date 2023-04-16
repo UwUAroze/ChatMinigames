@@ -56,7 +56,25 @@ effects:
 
 ########################################################################################################################
 
-minigame-messages:
+extra-game-settings: # Extra settings unique to individual games
+  math:
+    arithmetic: # Settings for arithmetic values
+      multiplication:
+        min-value: 2
+        max-value: 12
+
+      division: # Only numbers between these values that divide to make a whole number will be chosen.
+        min-value: 2
+        max-value: 360
+
+      addition-and-subtraction:
+        min-value: 5
+        max-value: 200
+        allow-negative-answers: false # Should equations with negative answers be allowed? (e.g. 26 - 30 = -4)
+
+########################################################################################################################
+
+minigame-messages: # All messages relating to minigames - start/end broadcasts, private messages, etc.
   starting-hover: # Text to be shown up on hovering over the game start message
     reactionTime: "&#ffd4e3&oPsst.. click me!"
 
@@ -140,7 +158,7 @@ minigame-messages:
 ########################################################################################################################
 
 misc-settings:
-  case-sensitive: false # Should answer checking for unscramble/rush be case-sensitive?
+  case-sensitive: false # Should answer checking for applicable games (unscramble/rush) be case-sensitive?
   cancel-winning-answers: true # Should the player's message be cancelled (not be sent) if it was a correct answer?
   ignore-cancelled-messages: true # Should cancelled messages (eg: muted players) be ignored?
 
