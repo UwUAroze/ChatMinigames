@@ -67,7 +67,11 @@ extra-game-settings: # Extra settings unique to individual games
         min-value: 2
         max-value: 360
 
-      addition-and-subtraction:
+      addition:
+        min-value: 5
+        max-value: 200
+
+      subtraction:
         min-value: 5
         max-value: 200
         allow-negative-answers: false # Should equations with negative answers be allowed? (e.g. 26 - 30 = -4)
