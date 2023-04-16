@@ -30,8 +30,8 @@ object MathGame : GenericGame(GameType.MATH) {
         val operation = randomOperation.next() as Operation
         values["operation"] = operation.getSymbol()
 
-        var num1 = randomNumber[operation]!!.next() as Int
-        var num2 = randomNumber[operation]!!.next() as Int
+        var num1 = if (operation != Operation.DIVISION) randomNumber[operation]!!.next() as Int else 0
+        var num2 = if (operation != Operation.DIVISION) randomNumber[operation]!!.next() as Int else 0
         val answer: Int
 
         when (operation) {
@@ -66,4 +66,4 @@ object MathGame : GenericGame(GameType.MATH) {
         fun getSymbol(): String = settings.getString("${this.getType()}.symbol")
     }
 
-} // hehe line #69
+} // hehe line 69
