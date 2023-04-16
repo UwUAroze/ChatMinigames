@@ -34,9 +34,15 @@ object MathGame : GenericGame(GameType.MATH) {
                 num2 = factor.second
                 answer = num1 / num2
             }
+            Operation.SUBTRACTION -> {
+                if (!settings.getBoolean("subtraction.allow-negative-answers")) {
+                    num1 = maxOf(num1, num2)
+                    num2 = minOf(num1, num2)
+                }
+                answer = num1 - num2
+            }
             Operation.MULTIPLICATION -> answer = num1 * num2
             Operation.ADDITION -> answer = num1 + num2
-            Operation.SUBTRACTION -> answer = num1 - num2
             else -> answer = 0 // This shouldn't happen
         }
 
