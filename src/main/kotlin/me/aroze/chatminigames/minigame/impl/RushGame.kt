@@ -6,9 +6,8 @@ import me.aroze.chatminigames.minigame.GenericGame
 
 object RushGame : GenericGame(GameType.RUSH) {
 
-    fun create() : GenericGame {
+    override fun create() {
         values["answer"] = randomisedWords.next().toString()
-        return this.start()
     }
 
 }

@@ -15,6 +15,6 @@ import org.bukkit.command.CommandSender
 )
 object TestCommand : FancyCommand("testgame") {
     override fun onCommand(sender: CommandSender, label: String, args: Array<out String>) {
-        val game = UnscrambleGame.create()
+        UnscrambleGame.start()
     }
 }

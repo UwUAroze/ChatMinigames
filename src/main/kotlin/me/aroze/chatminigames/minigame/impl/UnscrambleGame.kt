@@ -6,13 +6,12 @@ import me.aroze.chatminigames.minigame.GenericGame
 
 object UnscrambleGame : GenericGame(GameType.UNSCRAMBLE) {
 
-        fun create() : GenericGame {
+        override fun create() {
             values["answer"] = randomisedWords.next().toString()
             values["scrambled"] = values["answer"]!!.toCharArray().let {
                 it.shuffle()
                 it.joinToString("")
             }
-            return this.start()
         }
 
 }
