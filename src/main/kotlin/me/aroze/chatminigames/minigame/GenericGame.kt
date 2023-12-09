@@ -2,7 +2,7 @@ package me.aroze.chatminigames.minigame
 
 import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
 import me.aroze.arozeutils.minecraft.generic.coloured
-import me.aroze.chatminigames.ChatMinigames.Companion.config
+import me.aroze.chatminigames.ChatMinigames
 import me.aroze.chatminigames.minigame.GameHandler.runningGame
 import org.bukkit.Bukkit
 
@@ -33,6 +33,9 @@ enum class GameType(private val configName: String? = null) {
     fun getConfigName() = configName ?: name.lowercase()
 
     fun getMessage(type: String) : String {
+        // whatever
+        val config = ChatMinigames.get().config
+
         return when(type) {
             "startBroadcast" -> config.getStringList("minigame-messages.game-start.${getConfigName()}").joinToString("\n")
             "answeredBroadcast" -> config.getStringList("minigame-messages.answered-correctly-broadcast.${getConfigName()}").joinToString("\n")

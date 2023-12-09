@@ -2,12 +2,15 @@ package me.aroze.chatminigames.minigame.impl
 
 import me.aroze.arozeutils.kotlin.divisiblePairsBetween
 import me.aroze.arozeutils.kotlin.type.Randomiser
-import me.aroze.chatminigames.ChatMinigames.Companion.config
+import me.aroze.chatminigames.ChatMinigames
 import me.aroze.chatminigames.minigame.GameType
 import me.aroze.chatminigames.minigame.GenericGame
 import org.bukkit.configuration.ConfigurationSection
+import org.bukkit.configuration.file.FileConfiguration
 
 object MathGame : GenericGame(GameType.MATH) {
+    private val config: FileConfiguration
+        get() = ChatMinigames.get().config
 
     val settings: ConfigurationSection = config.getConfigurationSection("extra-game-settings.math.arithmetic")
     private val randomOperation = Randomiser(Operation.values().toList())
