@@ -4,18 +4,19 @@ import me.aroze.arozeutils.kotlin.extension.replacePlaceholders
 import me.aroze.arozeutils.kotlin.makeTimestamp
 import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.arozeutils.minecraft.generic.sync
-import me.aroze.chatminigames.ChatMinigames.Companion.config
-import me.aroze.chatminigames.command.TestCommand.send
+import me.aroze.chatminigames.ChatMinigames
 import org.bukkit.Bukkit
 import org.bukkit.Sound
+import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.AsyncPlayerChatEvent
-import java.util.EventListener
 
 object GameHandler: Listener {
-
     var runningGame: GenericGame? = null
+
+    private val config: FileConfiguration
+        get() = ChatMinigames.get().config
 
     @EventHandler
     fun onChat(event: AsyncPlayerChatEvent) {
@@ -46,7 +47,7 @@ object GameHandler: Listener {
             )
 
             sync { _ ->
-                for (command in config.getStringList("rewards.${runningGame!!.type.getConfigName()}")) {
+                for (command in config.getStringList("rewards.${it.type.getConfigName()}")) {
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replacePlaceholders(it.values))
                 }
 
@@ -64,5 +65,4 @@ object GameHandler: Listener {
             }
         }
     }
-
 }
